@@ -4,6 +4,17 @@
 
 Projeto acadêmico da disciplina *Tecnologia da Informação e Comunicação Aplicada à Administração*. Coleta dados oficiais do Banco Mundial via API, audita a base, calcula indicadores e entrega três produtos: um painel interativo, um relatório em PDF e uma análise administrativa em Markdown.
 
+## Acesso online
+
+| Página | Endereço |
+|---|---|
+| Painel interativo | <https://mariozhin.github.io/inclusao-digital-america-sul/> |
+| Relatório acadêmico (web) | <https://mariozhin.github.io/inclusao-digital-america-sul/output/relatorio-inclusao-digital.html> |
+| Relatório acadêmico (PDF) | <https://mariozhin.github.io/inclusao-digital-america-sul/output/relatorio-inclusao-digital.pdf> |
+| Análise administrativa (PDF) | <https://mariozhin.github.io/inclusao-digital-america-sul/output/analise-administrativa.pdf> |
+
+O site é publicado pelo GitHub Pages a partir da branch `main` deste repositório: cada novo envio atualiza o endereço automaticamente. Nenhum servidor local é necessário — basta abrir o link em qualquer computador.
+
 ---
 
 ## Resultados principais
