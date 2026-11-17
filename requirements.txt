@@ -1,0 +1,13 @@
+# Dependências do projeto — Python 3.10+
+#
+# Instalação:
+#   pip install -r requirements.txt
+#
+# O relatório em PDF é renderizado pelo Playwright usando o Google Chrome já
+# instalado na máquina (channel="chrome"). Caso o Chrome não esteja disponível,
+# instale o navegador gerenciado pelo Playwright:
+#   python -m playwright install chromium
+
+playwright>=1.40,<2.0
+pypdf>=4.0,<8.0
+pymupdf>=1.24,<3.0

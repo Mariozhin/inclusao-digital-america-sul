@@ -1,0 +1,427 @@
+{
+  "dataset": "C:\\Users\\TCM ENGENHARIA\\OneDrive\\ADMINISTRATIVO\\EM ORGANIZAÇÃO\\TCM (1)\\EM ORGANIZAÇÃO\\TCM\\Área de Trabalho1\\Nova pasta (2)\\Diversos\\Área de Trabalho VANESSA\\Mario Jot\\inclusao-digital-america-sul\\data\\internet_users.json",
+  "coleta_utc": "2026-11-17T18:00:43Z",
+  "api_atualizada_em": "2026-11-11",
+  "metricas": {
+    "periodo": {
+      "inicio": 2000,
+      "fim": 2024,
+      "n": 25
+    },
+    "paises": {
+      "BRA": {
+        "nome": "Brasil",
+        "primeiro_ano": 2000,
+        "primeiro_valor": 2.870685,
+        "ultimo_ano": 2024,
+        "ultimo_valor": 84.463472,
+        "delta_pp": 81.592787,
+        "variacao_relativa_pct": 2842.2757,
+        "media_periodo": 47.385797,
+        "minimo": 2.870685,
+        "maximo": 84.463472,
+        "maior_alta_anual": {
+          "ano": 2020,
+          "delta_pp": 7.430254
+        },
+        "maior_queda_anual": {
+          "ano": 2021,
+          "delta_pp": -0.6528
+        },
+        "anos_de_queda": [
+          2021,
+          2022
+        ]
+      },
+      "ARG": {
+        "nome": "Argentina",
+        "primeiro_ano": 2000,
+        "primeiro_valor": 7.038683,
+        "ultimo_ano": 2024,
+        "ultimo_valor": 89.667152,
+        "delta_pp": 82.628469,
+        "variacao_relativa_pct": 1173.9194,
+        "media_periodo": 50.785981,
+        "minimo": 7.038683,
+        "maximo": 89.667152,
+        "maior_alta_anual": {
+          "ano": 2010,
+          "delta_pp": 11.0
+        },
+        "maior_queda_anual": {
+          "ano": 2024,
+          "delta_pp": 0.438181
+        },
+        "anos_de_queda": []
+      },
+      "CHL": {
+        "nome": "Chile",
+        "primeiro_ano": 2000,
+        "primeiro_valor": 16.6,
+        "ultimo_ano": 2024,
+        "ultimo_valor": 95.590243,
+        "delta_pp": 78.990243,
+        "variacao_relativa_pct": 475.8448,
+        "media_periodo": 57.431423,
+        "minimo": 16.6,
+        "maximo": 95.590243,
+        "maior_alta_anual": {
+          "ano": 2015,
+          "delta_pp": 15.519591
+        },
+        "maior_queda_anual": {
+          "ano": 2017,
+          "delta_pp": -1.231099
+        },
+        "anos_de_queda": [
+          2017
+        ]
+      },
+      "URY": {
+        "nome": "Uruguai",
+        "primeiro_ano": 2000,
+        "primeiro_valor": 10.539058,
+        "ultimo_ano": 2024,
+        "ultimo_valor": 91.99109,
+        "delta_pp": 81.452032,
+        "variacao_relativa_pct": 772.8588,
+        "media_periodo": 52.534251,
+        "minimo": 10.539058,
+        "maximo": 91.99109,
+        "maior_alta_anual": {
+          "ano": 2018,
+          "delta_pp": 10.404488
+        },
+        "maior_queda_anual": {
+          "ano": 2002,
+          "delta_pp": 0.298033
+        },
+        "anos_de_queda": []
+      }
+    },
+    "media_estrangeiros": {
+      "2000": 11.39258,
+      "2001": 13.334082,
+      "2002": 14.800532,
+      "2003": 17.774871,
+      "2004": 20.425898,
+      "2005": 22.994691,
+      "2006": 28.274984,
+      "2007": 31.948878,
+      "2008": 34.904208,
+      "2009": 39.12,
+      "2010": 45.466667,
+      "2011": 51.551423,
+      "2012": 55.101256,
+      "2013": 58.530001,
+      "2014": 62.424164,
+      "2015": 69.747814,
+      "2016": 73.642523,
+      "2017": 75.648249,
+      "2018": 81.108948,
+      "2019": 82.772029,
+      "2020": 86.148228,
+      "2021": 88.342637,
+      "2022": 90.188866,
+      "2023": 91.537433,
+      "2024": 92.416162
+    },
+    "diferenca_brasil_media": {
+      "2000": -8.521895,
+      "2001": -8.805587,
+      "2002": -5.651106,
+      "2003": -4.567285,
+      "2004": -1.352225,
+      "2005": -1.971944,
+      "2006": -0.096584,
+      "2007": -1.068879,
+      "2008": -1.074208,
+      "2009": 0.1,
+      "2010": -4.816667,
+      "2011": -5.861423,
+      "2012": -6.541256,
+      "2013": -7.490001,
+      "2014": -7.873162,
+      "2015": -11.419863,
+      "2016": -12.769983,
+      "2017": -8.176965,
+      "2018": -10.674666,
+      "2019": -8.859589,
+      "2020": -4.805535,
+      "2021": -7.652744,
+      "2022": -9.661115,
+      "2023": -7.38683,
+      "2024": -7.95269
+    },
+    "diferenca_brasil_pais": {
+      "ARG": {
+        "2000": -4.167998,
+        "2001": -5.252312,
+        "2002": -1.732699,
+        "2003": 1.29389,
+        "2004": 3.036988,
+        "2005": 3.302164,
+        "2006": 7.251198,
+        "2007": 4.933366,
+        "2008": 5.717377,
+        "2009": 5.22,
+        "2010": -4.35,
+        "2011": -5.31,
+        "2012": -7.239999,
+        "2013": -8.860002,
+        "2014": -10.148995,
+        "2015": -9.715112,
+        "2016": -10.096441,
+        "2017": -6.823622,
+        "2018": -7.265717,
+        "2019": -6.034512,
+        "2020": -4.171693,
+        "2021": -6.460814,
+        "2022": -7.847606,
+        "2023": -5.078369,
+        "2024": -5.20368
+      },
+      "CHL": {
+        "2000": -13.729315,
+        "2001": -14.571505,
+        "2002": -12.950575,
+        "2003": -12.266193,
+        "2004": -9.104238,
+        "2005": -10.152553,
+        "2006": -6.319351,
+        "2007": -5.020002,
+        "2008": -3.469999,
+        "2009": -2.34,
+        "2010": -4.35,
+        "2011": -6.559607,
+        "2012": -6.489999,
+        "2013": -6.96,
+        "2014": -6.558999,
+        "2015": -18.30164,
+        "2016": -22.686046,
+        "2017": -14.856202,
+        "2018": -14.465719,
+        "2019": -11.105161,
+        "2020": -6.116604,
+        "2021": -9.54291,
+        "2022": -11.790448,
+        "2023": -10.306821,
+        "2024": -11.126771
+      },
+      "URY": {
+        "2000": -7.668373,
+        "2001": -6.592943,
+        "2002": -2.270045,
+        "2003": -2.729551,
+        "2004": 2.010574,
+        "2005": 0.934558,
+        "2006": -1.2216,
+        "2007": -3.120001,
+        "2008": -5.47,
+        "2009": -2.58,
+        "2010": -5.75,
+        "2011": -5.714661,
+        "2012": -5.893769,
+        "2013": -6.65,
+        "2014": -6.911493,
+        "2015": -6.242835,
+        "2016": -5.527461,
+        "2017": -2.85107,
+        "2018": -10.29256,
+        "2019": -9.439094,
+        "2020": -4.128307,
+        "2021": -6.954508,
+        "2022": -9.345292,
+        "2023": -6.775301,
+        "2024": -7.527618
+      }
+    },
+    "lider_por_ano": {
+      "2000": "CHL",
+      "2001": "CHL",
+      "2002": "CHL",
+      "2003": "CHL",
+      "2004": "CHL",
+      "2005": "CHL",
+      "2006": "CHL",
+      "2007": "CHL",
+      "2008": "URY",
+      "2009": "URY",
+      "2010": "URY",
+      "2011": "CHL",
+      "2012": "ARG",
+      "2013": "ARG",
+      "2014": "ARG",
+      "2015": "CHL",
+      "2016": "CHL",
+      "2017": "CHL",
+      "2018": "CHL",
+      "2019": "CHL",
+      "2020": "CHL",
+      "2021": "CHL",
+      "2022": "CHL",
+      "2023": "CHL",
+      "2024": "CHL"
+    },
+    "contagem_lideranca": {
+      "BRA": 0,
+      "ARG": 3,
+      "CHL": 19,
+      "URY": 3
+    },
+    "amplitude": {
+      "2000": 13.729315,
+      "2001": 14.571505,
+      "2002": 12.950575,
+      "2003": 13.560082,
+      "2004": 12.141226,
+      "2005": 13.454717,
+      "2006": 13.570549,
+      "2007": 9.953369,
+      "2008": 11.187377,
+      "2009": 7.8,
+      "2010": 5.75,
+      "2011": 6.559607,
+      "2012": 7.239999,
+      "2013": 8.860002,
+      "2014": 10.148995,
+      "2015": 18.30164,
+      "2016": 22.686046,
+      "2017": 14.856202,
+      "2018": 14.465719,
+      "2019": 11.105161,
+      "2020": 6.116604,
+      "2021": 9.54291,
+      "2022": 11.790448,
+      "2023": 10.306821,
+      "2024": 11.126771
+    },
+    "subperiodos": {
+      "2000-2009": {
+        "BRA": {
+          "inicio": 2.870685,
+          "fim": 39.22,
+          "delta_pp": 36.349315,
+          "pp_por_ano": 4.038813
+        },
+        "ARG": {
+          "inicio": 7.038683,
+          "fim": 34.0,
+          "delta_pp": 26.961317,
+          "pp_por_ano": 2.995702
+        },
+        "CHL": {
+          "inicio": 16.6,
+          "fim": 41.56,
+          "delta_pp": 24.96,
+          "pp_por_ano": 2.773333
+        },
+        "URY": {
+          "inicio": 10.539058,
+          "fim": 41.8,
+          "delta_pp": 31.260942,
+          "pp_por_ano": 3.473438
+        }
+      },
+      "2010-2019": {
+        "BRA": {
+          "inicio": 40.65,
+          "fim": 73.91244,
+          "delta_pp": 33.26244,
+          "pp_por_ano": 3.695827
+        },
+        "ARG": {
+          "inicio": 45.0,
+          "fim": 79.946952,
+          "delta_pp": 34.946952,
+          "pp_por_ano": 3.882995
+        },
+        "CHL": {
+          "inicio": 45.0,
+          "fim": 85.017601,
+          "delta_pp": 40.017601,
+          "pp_por_ano": 4.4464
+        },
+        "URY": {
+          "inicio": 46.4,
+          "fim": 83.351534,
+          "delta_pp": 36.951534,
+          "pp_por_ano": 4.105726
+        }
+      },
+      "2020-2024": {
+        "BRA": {
+          "inicio": 81.342694,
+          "fim": 84.463472,
+          "delta_pp": 3.120779,
+          "pp_por_ano": 0.780195
+        },
+        "ARG": {
+          "inicio": 85.514386,
+          "fim": 89.667152,
+          "delta_pp": 4.152766,
+          "pp_por_ano": 1.038191
+        },
+        "CHL": {
+          "inicio": 87.459297,
+          "fim": 95.590243,
+          "delta_pp": 8.130946,
+          "pp_por_ano": 2.032736
+        },
+        "URY": {
+          "inicio": 85.471001,
+          "fim": 91.99109,
+          "delta_pp": 6.520089,
+          "pp_por_ano": 1.630022
+        }
+      }
+    },
+    "comparativo_final": {
+      "ano": 2024,
+      "brasil": 84.463472,
+      "media_estrangeiros": 92.416162,
+      "diferenca_pp": -7.95269
+    }
+  },
+  "auditoria": {
+    "ok": [
+      "JSON contém todas as chaves de topo obrigatórias",
+      "Indicador correto: IT.NET.USER.ZS",
+      "Países corretos: BRA, ARG, CHL, URY",
+      "BRA: anos em ordem crescente",
+      "BRA: sem anos duplicados",
+      "BRA: valores dentro de 0-100",
+      "BRA: sem valores nulos",
+      "ARG: anos em ordem crescente",
+      "ARG: sem anos duplicados",
+      "ARG: valores dentro de 0-100",
+      "ARG: sem valores nulos",
+      "CHL: anos em ordem crescente",
+      "CHL: sem anos duplicados",
+      "CHL: valores dentro de 0-100",
+      "CHL: sem valores nulos",
+      "URY: anos em ordem crescente",
+      "URY: sem anos duplicados",
+      "URY: valores dentro de 0-100",
+      "URY: sem valores nulos",
+      "Total de observações = 135 (encontrado: 135)",
+      "Período de análise com 25 anos (2000-2024)",
+      "Nenhuma lacuna no período 2000-2024",
+      "BRA: sem lacunas em 2000-2024",
+      "ARG: sem lacunas em 2000-2024",
+      "CHL: sem lacunas em 2000-2024",
+      "URY: sem lacunas em 2000-2024",
+      "Mesmo último ano disponível nos quatro países (2024)",
+      "Espelho JS localizado e legível",
+      "Espelho JS idêntico ao JSON canônico (séries)",
+      "CSV com 135 linhas de dados (esperado 135)",
+      "CSV e JSON com valores idênticos (0 divergências)",
+      "Nenhum zero artificial no período de análise",
+      "docs/analise-administrativa.md: valores-chave conferem com o recálculo",
+      "output/relatorio-inclusao-digital.html: valores-chave conferem com o recálculo",
+      "index.html: valores-chave conferem com o recálculo"
+    ],
+    "avisos": [],
+    "falhas": []
+  }
+}

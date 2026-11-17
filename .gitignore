@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# Ambiente e segredos
+.env
+.env.*
+
+# Artefatos de verificação (gerados a cada build)
+output/verificacao/
+output/verificacao-doc/
+output/_texto_template.txt
+
+# Logs
+*.log

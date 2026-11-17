@@ -1,0 +1,794 @@
+/* Gerado automaticamente por scripts/fetch_data.py a partir de internet_users.json.
+   Espelho da base canônica para uso via file:// (sem servidor HTTP). Não editar manualmente. */
+window.INTERNET_USERS_DATA = {
+  "projeto": "Inclusão Digital: uma análise comparativa da evolução do acesso à Internet no Brasil e em países da América do Sul",
+  "disciplina": "Tecnologia da Informação e Comunicação Aplicada à Administração",
+  "gerado_por": "scripts/fetch_data.py (Python 3.12.10)",
+  "fonte": {
+    "instituicao": "Banco Mundial (World Bank)",
+    "dataset": "World Development Indicators (WDI)",
+    "dataset_id": "2",
+    "indicador_codigo": "IT.NET.USER.ZS",
+    "indicador_nome": "Individuals using the Internet (% of population)",
+    "indicador_nome_pt": "Indivíduos que usam a Internet (% da população)",
+    "definicao": "Percentual de indivíduos que usaram a Internet nos últimos três meses, em relação à população total.",
+    "unidade": "% da população",
+    "fonte_primaria": "International Telecommunication Union (ITU) — World Telecommunication/ICT Indicators Database",
+    "url_indicador": "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+    "url_api_pais": "https://api.worldbank.org/v2/country/{pais}/indicator/IT.NET.USER.ZS?format=json&per_page=100",
+    "url_api_multipais": "https://api.worldbank.org/v2/country/BRA;ARG;CHL;URY/indicator/IT.NET.USER.ZS?format=json&per_page=20000",
+    "api_atualizada_em": "2026-11-11",
+    "nota_coleta": "A consulta multi-país em um único endpoint é bloqueada pelo WAF do Banco Mundial a partir de parte dos ambientes (HTTP 502). Foram executadas consultas equivalentes, uma por país, no mesmo endpoint oficial, com consolidação posterior."
+  },
+  "coleta": {
+    "data_utc": "2026-11-17T18:00:43Z",
+    "data_local": "2026-11-17 15:00",
+    "metodologia_api": "JSON stateless, paginação verificada (pages = 1, per_page = 100)",
+    "observacao": "Valores preservados como retornados pela API. Anos sem informação não constam da base (ausentes, não zeros)."
+  },
+  "paises": [
+    {
+      "codigo": "BRA",
+      "nome": "Brasil",
+      "nome_en": "Brazil",
+      "cor": "#1B4F9C",
+      "cor_nome": "Azul"
+    },
+    {
+      "codigo": "ARG",
+      "nome": "Argentina",
+      "nome_en": "Argentina",
+      "cor": "#C2185B",
+      "cor_nome": "Rosa"
+    },
+    {
+      "codigo": "CHL",
+      "nome": "Chile",
+      "nome_en": "Chile",
+      "cor": "#1E7A45",
+      "cor_nome": "Verde"
+    },
+    {
+      "codigo": "URY",
+      "nome": "Uruguai",
+      "nome_en": "Uruguay",
+      "cor": "#111418",
+      "cor_nome": "Preto"
+    }
+  ],
+  "periodo": {
+    "serie_completa": {
+      "inicio": 1990,
+      "fim": 2024
+    },
+    "analise": {
+      "inicio": 2000,
+      "fim": 2024,
+      "criterio": "Período comum aos quatro países, iniciado em 2000, sem lacunas em nenhuma série."
+    },
+    "anos_comuns": [
+      1990,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "anos_analise": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "lacunas_na_analise": []
+  },
+  "verificacao": {
+    "ultimo_ano_por_pais": {
+      "BRA": 2024,
+      "ARG": 2024,
+      "CHL": 2024,
+      "URY": 2024
+    },
+    "por_pais": {
+      "BRA": {
+        "primeiro_ano": 1990,
+        "ultimo_ano": 2024,
+        "total_observacoes": 35,
+        "anos_ausentes": []
+      },
+      "ARG": {
+        "primeiro_ano": 1990,
+        "ultimo_ano": 2024,
+        "total_observacoes": 34,
+        "anos_ausentes": [
+          1991
+        ]
+      },
+      "CHL": {
+        "primeiro_ano": 1990,
+        "ultimo_ano": 2024,
+        "total_observacoes": 34,
+        "anos_ausentes": [
+          1991
+        ]
+      },
+      "URY": {
+        "primeiro_ano": 1990,
+        "ultimo_ano": 2024,
+        "total_observacoes": 32,
+        "anos_ausentes": [
+          1991,
+          1992,
+          1993
+        ]
+      }
+    },
+    "api": {
+      "BRA": {
+        "total_registros": 66,
+        "paginas": 1,
+        "pagina_lida": 1,
+        "requisicoes": 1,
+        "status_http": 200
+      },
+      "ARG": {
+        "total_registros": 66,
+        "paginas": 1,
+        "pagina_lida": 1,
+        "requisicoes": 1,
+        "status_http": 200
+      },
+      "CHL": {
+        "total_registros": 66,
+        "paginas": 1,
+        "pagina_lida": 1,
+        "requisicoes": 1,
+        "status_http": 200
+      },
+      "URY": {
+        "total_registros": 66,
+        "paginas": 1,
+        "pagina_lida": 1,
+        "requisicoes": 1,
+        "status_http": 200
+      }
+    }
+  },
+  "series": [
+    {
+      "codigo": "BRA",
+      "nome": "Brasil",
+      "nome_en": "Brazil",
+      "cor": "#1B4F9C",
+      "cor_nome": "Azul",
+      "primeiro_ano": 1990,
+      "ultimo_ano_disponivel": 2024,
+      "total_observacoes": 35,
+      "dados": [
+        {
+          "ano": 1990,
+          "valor": 0.0
+        },
+        {
+          "ano": 1991,
+          "valor": 0.00329
+        },
+        {
+          "ano": 1992,
+          "valor": 0.0129
+        },
+        {
+          "ano": 1993,
+          "valor": 0.0255
+        },
+        {
+          "ano": 1994,
+          "valor": 0.0377
+        },
+        {
+          "ano": 1995,
+          "valor": 0.105
+        },
+        {
+          "ano": 1996,
+          "valor": 0.451
+        },
+        {
+          "ano": 1997,
+          "valor": 0.786
+        },
+        {
+          "ano": 1998,
+          "valor": 1.48
+        },
+        {
+          "ano": 1999,
+          "valor": 2.04
+        },
+        {
+          "ano": 2000,
+          "valor": 2.87068515854108
+        },
+        {
+          "ano": 2001,
+          "valor": 4.52849486902851
+        },
+        {
+          "ano": 2002,
+          "valor": 9.14942508560748
+        },
+        {
+          "ano": 2003,
+          "valor": 13.2075861035303
+        },
+        {
+          "ano": 2004,
+          "valor": 19.073672274442
+        },
+        {
+          "ano": 2005,
+          "valor": 21.022747248827
+        },
+        {
+          "ano": 2006,
+          "valor": 28.17840004
+        },
+        {
+          "ano": 2007,
+          "valor": 30.87999916
+        },
+        {
+          "ano": 2008,
+          "valor": 33.83
+        },
+        {
+          "ano": 2009,
+          "valor": 39.22
+        },
+        {
+          "ano": 2010,
+          "valor": 40.65
+        },
+        {
+          "ano": 2011,
+          "valor": 45.69
+        },
+        {
+          "ano": 2012,
+          "valor": 48.56
+        },
+        {
+          "ano": 2013,
+          "valor": 51.04
+        },
+        {
+          "ano": 2014,
+          "valor": 54.5510018796392
+        },
+        {
+          "ano": 2015,
+          "valor": 58.3279517340924
+        },
+        {
+          "ano": 2016,
+          "valor": 60.8725400681261
+        },
+        {
+          "ano": 2017,
+          "valor": 67.4712845236305
+        },
+        {
+          "ano": 2018,
+          "valor": 70.4342825404361
+        },
+        {
+          "ano": 2019,
+          "valor": 73.9124399133589
+        },
+        {
+          "ano": 2020,
+          "valor": 81.34269353
+        },
+        {
+          "ano": 2021,
+          "valor": 80.68989314
+        },
+        {
+          "ano": 2022,
+          "valor": 80.52775094
+        },
+        {
+          "ano": 2023,
+          "valor": 84.15060238
+        },
+        {
+          "ano": 2024,
+          "valor": 84.46347227
+        }
+      ]
+    },
+    {
+      "codigo": "ARG",
+      "nome": "Argentina",
+      "nome_en": "Argentina",
+      "cor": "#C2185B",
+      "cor_nome": "Rosa",
+      "primeiro_ano": 1990,
+      "ultimo_ano_disponivel": 2024,
+      "total_observacoes": 34,
+      "dados": [
+        {
+          "ano": 1990,
+          "valor": 0.0
+        },
+        {
+          "ano": 1992,
+          "valor": 0.00299
+        },
+        {
+          "ano": 1993,
+          "valor": 0.0295
+        },
+        {
+          "ano": 1994,
+          "valor": 0.0437
+        },
+        {
+          "ano": 1995,
+          "valor": 0.0863
+        },
+        {
+          "ano": 1996,
+          "valor": 0.142
+        },
+        {
+          "ano": 1997,
+          "valor": 0.28
+        },
+        {
+          "ano": 1998,
+          "valor": 0.831
+        },
+        {
+          "ano": 1999,
+          "valor": 3.28
+        },
+        {
+          "ano": 2000,
+          "valor": 7.0386830862178
+        },
+        {
+          "ano": 2001,
+          "valor": 9.78080728532407
+        },
+        {
+          "ano": 2002,
+          "valor": 10.8821243775325
+        },
+        {
+          "ano": 2003,
+          "valor": 11.9136965509954
+        },
+        {
+          "ano": 2004,
+          "valor": 16.0366841054923
+        },
+        {
+          "ano": 2005,
+          "valor": 17.7205833696065
+        },
+        {
+          "ano": 2006,
+          "valor": 20.9272021035896
+        },
+        {
+          "ano": 2007,
+          "valor": 25.9466329403819
+        },
+        {
+          "ano": 2008,
+          "valor": 28.1126234799907
+        },
+        {
+          "ano": 2009,
+          "valor": 34.0
+        },
+        {
+          "ano": 2010,
+          "valor": 45.0
+        },
+        {
+          "ano": 2011,
+          "valor": 51.0
+        },
+        {
+          "ano": 2012,
+          "valor": 55.79999924
+        },
+        {
+          "ano": 2013,
+          "valor": 59.90000153
+        },
+        {
+          "ano": 2014,
+          "valor": 64.69999695
+        },
+        {
+          "ano": 2015,
+          "valor": 68.0430641088122
+        },
+        {
+          "ano": 2016,
+          "valor": 70.9689808206024
+        },
+        {
+          "ano": 2017,
+          "valor": 74.2949068657957
+        },
+        {
+          "ano": 2018,
+          "valor": 77.7
+        },
+        {
+          "ano": 2019,
+          "valor": 79.9469520347551
+        },
+        {
+          "ano": 2020,
+          "valor": 85.51438646
+        },
+        {
+          "ano": 2021,
+          "valor": 87.15070683
+        },
+        {
+          "ano": 2022,
+          "valor": 88.37535691
+        },
+        {
+          "ano": 2023,
+          "valor": 89.22897166
+        },
+        {
+          "ano": 2024,
+          "valor": 89.66715228
+        }
+      ]
+    },
+    {
+      "codigo": "CHL",
+      "nome": "Chile",
+      "nome_en": "Chile",
+      "cor": "#1E7A45",
+      "cor_nome": "Verde",
+      "primeiro_ano": 1990,
+      "ultimo_ano_disponivel": 2024,
+      "total_observacoes": 34,
+      "dados": [
+        {
+          "ano": 1990,
+          "valor": 0.0
+        },
+        {
+          "ano": 1992,
+          "valor": 0.0365
+        },
+        {
+          "ano": 1993,
+          "valor": 0.0718
+        },
+        {
+          "ano": 1994,
+          "valor": 0.141
+        },
+        {
+          "ano": 1995,
+          "valor": 0.347
+        },
+        {
+          "ano": 1996,
+          "valor": 0.683
+        },
+        {
+          "ano": 1997,
+          "valor": 1.06
+        },
+        {
+          "ano": 1998,
+          "valor": 1.66
+        },
+        {
+          "ano": 1999,
+          "valor": 4.1
+        },
+        {
+          "ano": 2000,
+          "valor": 16.6
+        },
+        {
+          "ano": 2001,
+          "valor": 19.1
+        },
+        {
+          "ano": 2002,
+          "valor": 22.1
+        },
+        {
+          "ano": 2003,
+          "valor": 25.4737788864723
+        },
+        {
+          "ano": 2004,
+          "valor": 28.1779101232438
+        },
+        {
+          "ano": 2005,
+          "valor": 31.1753006
+        },
+        {
+          "ano": 2006,
+          "valor": 34.4977511736017
+        },
+        {
+          "ano": 2007,
+          "valor": 35.90000153
+        },
+        {
+          "ano": 2008,
+          "valor": 37.29999924
+        },
+        {
+          "ano": 2009,
+          "valor": 41.56
+        },
+        {
+          "ano": 2010,
+          "valor": 45.0
+        },
+        {
+          "ano": 2011,
+          "valor": 52.2496072877744
+        },
+        {
+          "ano": 2012,
+          "valor": 55.04999924
+        },
+        {
+          "ano": 2013,
+          "valor": 58.0
+        },
+        {
+          "ano": 2014,
+          "valor": 61.11000061
+        },
+        {
+          "ano": 2015,
+          "valor": 76.6295919508796
+        },
+        {
+          "ano": 2016,
+          "valor": 83.5585860244169
+        },
+        {
+          "ano": 2017,
+          "valor": 82.3274869338464
+        },
+        {
+          "ano": 2018,
+          "valor": 84.90000153
+        },
+        {
+          "ano": 2019,
+          "valor": 85.01760101
+        },
+        {
+          "ano": 2020,
+          "valor": 87.45929718
+        },
+        {
+          "ano": 2021,
+          "valor": 90.23280334
+        },
+        {
+          "ano": 2022,
+          "valor": 92.31819916
+        },
+        {
+          "ano": 2023,
+          "valor": 94.45742345
+        },
+        {
+          "ano": 2024,
+          "valor": 95.590243
+        }
+      ]
+    },
+    {
+      "codigo": "URY",
+      "nome": "Uruguai",
+      "nome_en": "Uruguay",
+      "cor": "#111418",
+      "cor_nome": "Preto",
+      "primeiro_ano": 1990,
+      "ultimo_ano_disponivel": 2024,
+      "total_observacoes": 32,
+      "dados": [
+        {
+          "ano": 1990,
+          "valor": 0.0
+        },
+        {
+          "ano": 1994,
+          "valor": 0.0625
+        },
+        {
+          "ano": 1995,
+          "valor": 0.31
+        },
+        {
+          "ano": 1996,
+          "valor": 1.85
+        },
+        {
+          "ano": 1997,
+          "valor": 3.36
+        },
+        {
+          "ano": 1998,
+          "valor": 6.99
+        },
+        {
+          "ano": 1999,
+          "valor": 9.97
+        },
+        {
+          "ano": 2000,
+          "valor": 10.5390577480141
+        },
+        {
+          "ano": 2001,
+          "valor": 11.1214376832783
+        },
+        {
+          "ano": 2002,
+          "valor": 11.4194701966853
+        },
+        {
+          "ano": 2003,
+          "valor": 15.9371367159756
+        },
+        {
+          "ano": 2004,
+          "valor": 17.0630983403661
+        },
+        {
+          "ano": 2005,
+          "valor": 20.0881895579305
+        },
+        {
+          "ano": 2006,
+          "valor": 29.39999962
+        },
+        {
+          "ano": 2007,
+          "valor": 34.0
+        },
+        {
+          "ano": 2008,
+          "valor": 39.3
+        },
+        {
+          "ano": 2009,
+          "valor": 41.8
+        },
+        {
+          "ano": 2010,
+          "valor": 46.4
+        },
+        {
+          "ano": 2011,
+          "valor": 51.4046610563616
+        },
+        {
+          "ano": 2012,
+          "valor": 54.453768680746
+        },
+        {
+          "ano": 2013,
+          "valor": 57.69
+        },
+        {
+          "ano": 2014,
+          "valor": 61.4624951684405
+        },
+        {
+          "ano": 2015,
+          "valor": 64.5707870971624
+        },
+        {
+          "ano": 2016,
+          "valor": 66.40000153
+        },
+        {
+          "ano": 2017,
+          "valor": 70.3223543994698
+        },
+        {
+          "ano": 2018,
+          "valor": 80.7268428795854
+        },
+        {
+          "ano": 2019,
+          "valor": 83.3515337667548
+        },
+        {
+          "ano": 2020,
+          "valor": 85.47100067
+        },
+        {
+          "ano": 2021,
+          "valor": 87.64440155
+        },
+        {
+          "ano": 2022,
+          "valor": 89.87304314
+        },
+        {
+          "ano": 2023,
+          "valor": 90.92590332
+        },
+        {
+          "ano": 2024,
+          "valor": 91.99109007
+        }
+      ]
+    }
+  ]
+};

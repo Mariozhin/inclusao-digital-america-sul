@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Inclusão Digital: uma análise comparativa da evolução do acesso à Internet no Brasil e em países da América do Sul</title>
+<meta name="author" content="Tecnologia da Informação e Comunicação Aplicada à Administração">
+<meta name="description" content="Relatório acadêmico com análise comparativa do acesso à Internet no Brasil, Argentina, Chile e Uruguai (2000-2024), a partir do indicador IT.NET.USER.ZS do Banco Mundial.">
+<style>
+/* ==========================================================================
+   relatorio-inclusao-digital.css — folha de estilo do relatório acadêmico
+   Formato A4 com paginação fixa, conforme Skill "relatorios-bi-academicos".
+   ========================================================================== */
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+:root {
+  --azul: #1B4F9C;
+  --azul-escuro: #0F2C57;
+  --azul-claro: #EAF1FB;
+  --rosa: #C2185B;
+  --verde: #1E7A45;
+  --preto: #111418;
+  --texto: #24292F;
+  --texto-fraco: #5B6672;
+  --grade: #E4E8EE;
+
+  --sans: "Segoe UI", "Inter", system-ui, -apple-system, Arial, sans-serif;
+  --serif: Cambria, "Georgia", "Times New Roman", serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+}
+
+body {
+  font-family: var(--serif);
+  font-size: 10.8pt;
+  line-height: 1.6;
+  color: var(--texto);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  text-rendering: optimizeLegibility;
+}
+
+/* ------------------------------------------------------------------ páginas */
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: 23mm 20mm 17mm;
+  overflow: hidden;
+  background: #FFFFFF;
+  page-break-after: always;
+  break-after: page;
+}
+
+.page:last-child { page-break-after: auto; break-after: auto; }
+
+@media screen {
+  body { background: #EDF0F5; padding: 20px 0 40px; }
+  .page {
+    margin: 0 auto 16px;
+    box-shadow: 0 2px 10px rgba(15, 44, 87, 0.13);
+    border: 1px solid #E1E6EE;
+  }
+}
+
+.page-conteudo { position: relative; }
+
+.page-cabecalho {
+  position: absolute;
+  top: 11mm;
+  left: 20mm;
+  right: 20mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 0.6pt solid #DCE3ED;
+  padding-bottom: 2mm;
+  font-family: var(--sans);
+  font-size: 7.2pt;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #7A8697;
+}
+
+.page-cabecalho .cap-esq { color: var(--azul-escuro); font-weight: 600; }
+
+.page-rodape {
+  position: absolute;
+  bottom: 9mm;
+  left: 20mm;
+  right: 20mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.6pt solid #DCE3ED;
+  padding-top: 2mm;
+  font-family: var(--sans);
+  font-size: 7.2pt;
+  color: #7A8697;
+}
+
+.page-rodape .folio {
+  font-weight: 700;
+  color: var(--azul-escuro);
+  font-size: 8pt;
+}
+
+/* --------------------------------------------------------------------- capa */
+.capa {
+  padding: 0;
+  background: #FFFFFF;
+}
+
+.capa-faixa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 210mm;
+  height: 9mm;
+  background: var(--azul);
+}
+
+.capa-faixa-2 {
+  position: absolute;
+  top: 9mm;
+  left: 0;
+  width: 210mm;
+  height: 1.6mm;
+  background: var(--rosa);
+}
+
+.capa-corpo {
+  position: absolute;
+  top: 46mm;
+  left: 24mm;
+  right: 24mm;
+}
+
+.capa-eyebrow {
+  font-family: var(--sans);
+  font-size: 8.2pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--azul);
+  border-left: 2.6pt solid var(--azul);
+  padding-left: 3.2mm;
+  line-height: 1.4;
+  margin-bottom: 11mm;
+}
+
+.capa h1 {
+  font-family: var(--sans);
+  font-size: 23pt;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin: 0 0 7mm;
+}
+
+.capa .subtitulo {
+  font-family: var(--serif);
+  font-size: 12pt;
+  line-height: 1.55;
+  color: var(--texto-fraco);
+  margin: 0 0 12mm;
+  max-width: 150mm;
+}
+
+.capa .linha-divisoria {
+  width: 34mm;
+  height: 1.2pt;
+  background: var(--azul);
+  margin-bottom: 10mm;
+}
+
+.capa .disciplina-bloco {
+  font-family: var(--sans);
+  font-size: 9pt;
+  line-height: 1.65;
+  color: var(--texto);
+}
+
+.capa .disciplina-bloco .rotulo {
+  display: block;
+  font-size: 7.4pt;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 1.5mm;
+}
+
+.capa .disciplina-bloco strong {
+  font-size: 10pt;
+  color: var(--azul-escuro);
+  font-weight: 600;
+}
+
+.capa-rodape {
+  position: absolute;
+  bottom: 26mm;
+  left: 24mm;
+  right: 24mm;
+}
+
+.capa-rodape .campo {
+  display: flex;
+  align-items: flex-end;
+  gap: 3mm;
+  margin-bottom: 7mm;
+  font-family: var(--sans);
+  font-size: 8.6pt;
+  color: var(--texto-fraco);
+}
+
+.capa-rodape .campo .rotulo {
+  flex: 0 0 30mm;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--azul-escuro);
+  padding-bottom: 1mm;
+}
+
+.capa-rodape .campo .linha {
+  flex: 1;
+  min-height: 6mm;
+  border-bottom: 0.7pt solid #9FB0C6;
+  outline: none;
+  font-size: 9.5pt;
+  color: var(--texto);
+  padding: 0 1mm 1mm;
+}
+
+.capa-cidade {
+  position: absolute;
+  bottom: 20mm;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 9pt;
+  letter-spacing: 0.06em;
+  color: var(--texto-fraco);
+}
+
+.capa-cidade .ano { color: var(--azul-escuro); font-weight: 700; }
+
+/* ------------------------------------------------------------------ títulos */
+h2.secao {
+  font-family: var(--sans);
+  font-size: 15pt;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--azul-escuro);
+  margin: 0 0 5mm;
+  padding-bottom: 2.4mm;
+  border-bottom: 1.1pt solid var(--azul);
+  letter-spacing: -0.01em;
+}
+
+h2.secao .numero {
+  color: var(--azul);
+  margin-right: 2.6mm;
+}
+
+h3 {
+  font-family: var(--sans);
+  font-size: 11pt;
+  font-weight: 650;
+  color: var(--azul-escuro);
+  margin: 6mm 0 2.6mm;
+  line-height: 1.35;
+}
+
+h3:first-child { margin-top: 0; }
+
+h4 {
+  font-family: var(--sans);
+  font-size: 9.8pt;
+  font-weight: 650;
+  color: var(--azul);
+  margin: 4.4mm 0 1.8mm;
+}
+
+p {
+  margin: 0 0 3.2mm;
+  text-align: justify;
+  hyphens: auto;
+  orphans: 3;
+  widows: 3;
+}
+
+ul, ol {
+  margin: 0 0 3.4mm;
+  padding-left: 6.5mm;
+}
+
+li {
+  margin-bottom: 1.6mm;
+  text-align: justify;
+  hyphens: auto;
+}
+
+li::marker { color: var(--azul); }
+
+strong { font-weight: 700; color: var(--azul-escuro); }
+em { font-style: italic; }
+
+.destaque-azul { color: var(--azul); font-weight: 700; }
+
+/* ------------------------------------------------------------------ tabelas */
+.tabela-bloco { margin: 3.4mm 0 4.6mm; }
+
+.tabela-titulo {
+  font-family: var(--sans);
+  font-size: 8.6pt;
+  font-weight: 650;
+  color: var(--azul-escuro);
+  margin-bottom: 2mm;
+  line-height: 1.4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 8.3pt;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+thead th {
+  background: var(--azul-claro);
+  color: var(--azul-escuro);
+  font-weight: 650;
+  text-align: right;
+  padding: 1.9mm 2.2mm;
+  border-top: 0.9pt solid var(--azul);
+  border-bottom: 0.7pt solid var(--azul);
+  white-space: nowrap;
+}
+
+thead th:first-child { text-align: left; }
+
+tbody td {
+  padding: 1.7mm 2.2mm;
+  text-align: right;
+  border-bottom: 0.5pt solid var(--grade);
+  color: var(--texto);
+}
+
+tbody td:first-child { text-align: left; font-weight: 600; color: var(--azul-escuro); }
+
+tbody tr:last-child td { border-bottom: 0.9pt solid var(--azul); }
+
+tbody tr.destaque td { background: #F5F8FD; }
+
+tbody td.pp-neg { color: var(--rosa); }
+tbody td.pp-pos { color: var(--verde); }
+
+.fonte-tabela {
+  font-family: var(--sans);
+  font-size: 7.4pt;
+  line-height: 1.45;
+  color: var(--texto-fraco);
+  margin-top: 1.8mm;
+}
+
+/* ------------------------------------------------------------------ figuras */
+.figura { margin: 3mm 0 4mm; }
+
+.figura-titulo {
+  font-family: var(--sans);
+  font-size: 9pt;
+  font-weight: 650;
+  color: var(--azul-escuro);
+  margin: 0 0 1mm;
+  line-height: 1.4;
+}
+
+.figura-sub {
+  font-family: var(--sans);
+  font-size: 7.8pt;
+  color: var(--texto-fraco);
+  margin: 0 0 3mm;
+  line-height: 1.4;
+}
+
+.figura-svg { width: 100%; }
+.figura-svg svg { display: block; width: 100%; height: auto; }
+
+.figura-fonte {
+  font-family: var(--sans);
+  font-size: 7.4pt;
+  line-height: 1.45;
+  color: var(--texto-fraco);
+  border-top: 0.5pt solid var(--grade);
+  padding-top: 1.6mm;
+  margin-top: 1.8mm;
+}
+
+/* -------------------------------------------------------------------- notas */
+.nota {
+  border-left: 2.2pt solid var(--azul);
+  background: #F6F9FE;
+  padding: 3mm 4mm;
+  margin: 3.4mm 0 4mm;
+  font-size: 9.4pt;
+  line-height: 1.5;
+}
+
+.nota p:last-child { margin-bottom: 0; }
+
+.nota .nota-titulo {
+  font-family: var(--sans);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--azul);
+  display: block;
+  margin-bottom: 1.4mm;
+}
+
+/* ------------------------------------------------------------------ sumário */
+.sumario { margin-top: 2mm; }
+
+.sumario-linha {
+  display: flex;
+  align-items: baseline;
+  gap: 2.5mm;
+  font-family: var(--sans);
+  font-size: 9.1pt;
+  padding: 1mm 0;
+  border-bottom: 0.5pt dotted #CDD6E2;
+  color: var(--texto);
+}
+
+.sumario-linha .titulo { flex: 0 1 auto; }
+.sumario-linha .pontos { flex: 1 1 auto; border-bottom: 0.6pt dotted #C3CDDB; transform: translateY(-1mm); }
+.sumario-linha .pagina { flex: 0 0 auto; font-weight: 700; color: var(--azul-escuro); font-variant-numeric: tabular-nums; }
+.sumario-linha.sub .titulo { padding-left: 6mm; font-size: 8.6pt; color: var(--texto-fraco); }
+.sumario-linha.principal .titulo { font-weight: 650; color: var(--azul-escuro); text-transform: uppercase; font-size: 9.4pt; letter-spacing: 0.04em; }
+.sumario-linha a { color: inherit; text-decoration: none; }
+
+/* --------------------------------------------------------------- referências */
+.referencias { list-style: none; padding: 0; margin: 2mm 0 0; }
+
+.referencias li {
+  font-size: 9.4pt;
+  line-height: 1.55;
+  padding-left: 6.5mm;
+  text-indent: -6.5mm;
+  margin-bottom: 3.4mm;
+  text-align: left;
+  hyphens: none;
+}
+
+.referencias a {
+  color: var(--azul);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+/* --------------------------------------------------------------- utilidades */
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 8mm;
+}
+
+.lista-limpa { list-style: none; padding-left: 0; }
+.lista-limpa li { padding-left: 5mm; position: relative; }
+.lista-limpa li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.9mm;
+  width: 1.8mm;
+  height: 1.8mm;
+  background: var(--azul);
+  border-radius: 50%;
+}
+
+.assinatura-secao {
+  margin-top: 5mm;
+  padding-top: 3mm;
+  border-top: 0.6pt solid var(--grade);
+  font-family: var(--sans);
+  font-size: 8pt;
+  color: var(--texto-fraco);
+  text-align: right;
+}
+
+.tag-pais {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 8.2pt;
+  color: var(--azul-escuro);
+  border: 0.6pt solid #CDD6E2;
+  border-left: 2pt solid var(--azul);
+  padding: 1.4mm 3mm;
+  margin: 0 2mm 2mm 0;
+}
+
+.aviso-validacao {
+  font-family: var(--sans);
+  font-size: 8.4pt;
+  color: var(--texto-fraco);
+  background: #FAFBFD;
+  border: 0.6pt solid var(--grade);
+  padding: 2.6mm 3.4mm;
+  margin: 3mm 0 0;
+  line-height: 1.5;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================ 1. CAPA -->
+<section class="page capa" data-page="1" id="pagina-1">
+  <div class="capa-faixa"></div>
+  <div class="capa-faixa-2"></div>
+
+  <div class="capa-corpo">
+    <div class="capa-eyebrow">Pesquisa acadêmica aplicada · Dados públicos · Business Intelligence</div>
+
+    <h1>INCLUSÃO DIGITAL: UMA ANÁLISE COMPARATIVA DA EVOLUÇÃO DO ACESSO À INTERNET NO BRASIL E EM PAÍSES DA AMÉRICA DO SUL</h1>
+
+    <p class="subtitulo">
+      Estudo quantitativo descritivo da trajetória de Brasil, Argentina, Chile e Uruguai entre 2000 e
+      2024, a partir do indicador oficial <em>IT.NET.USER.ZS</em> do Banco Mundial.
+    </p>
+
+    <div class="linha-divisoria"></div>
+
+    <div class="disciplina-bloco">
+      <span class="rotulo">Disciplina</span>
+      <strong>Tecnologia da Informação e Comunicação Aplicada à Administração</strong>
+    </div>
+  </div>
+
+  <div class="capa-rodape">
+    <div class="campo">
+      <span class="rotulo">Aluno(a)</span>
+      <span class="linha" contenteditable="true" spellcheck="false"></span>
+    </div>
+    <div class="campo">
+      <span class="rotulo">Instituição</span>
+      <span class="linha" contenteditable="true" spellcheck="false"></span>
+    </div>
+  </div>
+
+  <div class="capa-cidade"><span style="display:inline-block;width:52mm;border-bottom:0.7pt solid #9FB0C6;margin-right:4mm">&nbsp;</span><span class="ano">2026</span></div>
+</section>
+
+<!-- ========================================================= 2. SUMÁRIO -->
+<section class="page" data-page="2" id="pagina-2">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>Relatório de pesquisa</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao">SUMÁRIO</h2>
+
+    <div class="sumario">
+      <div class="sumario-linha principal" data-sec="resumo"><a href="#"><span class="titulo">Resumo</span></a><span class="pontos"></span><span class="pagina">3</span></div>
+      <div class="sumario-linha principal" data-sec="s1"><a href="#"><span class="titulo">1 Introdução</span></a><span class="pontos"></span><span class="pagina">4</span></div>
+      <div class="sumario-linha sub" data-sec="s1-1"><a href="#"><span class="titulo">1.1 Contextualização e problema de pesquisa</span></a><span class="pontos"></span><span class="pagina">4</span></div>
+      <div class="sumario-linha sub" data-sec="s1-2"><a href="#"><span class="titulo">1.2 Justificativa</span></a><span class="pontos"></span><span class="pagina">5</span></div>
+      <div class="sumario-linha principal" data-sec="s2"><a href="#"><span class="titulo">2 Objetivos</span></a><span class="pontos"></span><span class="pagina">5</span></div>
+      <div class="sumario-linha principal" data-sec="s3"><a href="#"><span class="titulo">3 Metodologia</span></a><span class="pontos"></span><span class="pagina">6</span></div>
+      <div class="sumario-linha sub" data-sec="s3-1"><a href="#"><span class="titulo">3.1 Delineamento da pesquisa</span></a><span class="pontos"></span><span class="pagina">6</span></div>
+      <div class="sumario-linha sub" data-sec="s3-2"><a href="#"><span class="titulo">3.2 Fonte de dados e consulta à API</span></a><span class="pontos"></span><span class="pagina">6</span></div>
+      <div class="sumario-linha sub" data-sec="s3-3"><a href="#"><span class="titulo">3.3 Tratamento, validação e métricas</span></a><span class="pontos"></span><span class="pagina">7</span></div>
+      <div class="sumario-linha principal" data-sec="s4"><a href="#"><span class="titulo">4 Fundamentação conceitual</span></a><span class="pontos"></span><span class="pagina">8</span></div>
+      <div class="sumario-linha sub" data-sec="s4-1"><a href="#"><span class="titulo">4.1 Tecnologia da informação e comunicação</span></a><span class="pontos"></span><span class="pagina">8</span></div>
+      <div class="sumario-linha sub" data-sec="s4-2"><a href="#"><span class="titulo">4.2 Inclusão digital</span></a><span class="pontos"></span><span class="pagina">8</span></div>
+      <div class="sumario-linha sub" data-sec="s4-3"><a href="#"><span class="titulo">4.3 Transformação digital</span></a><span class="pontos"></span><span class="pagina">9</span></div>
+      <div class="sumario-linha sub" data-sec="s4-4"><a href="#"><span class="titulo">4.4 Sistemas de informação</span></a><span class="pontos"></span><span class="pagina">9</span></div>
+      <div class="sumario-linha sub" data-sec="s4-5"><a href="#"><span class="titulo">4.5 Business Intelligence</span></a><span class="pontos"></span><span class="pagina">10</span></div>
+      <div class="sumario-linha sub" data-sec="s4-6"><a href="#"><span class="titulo">4.6 Informação como recurso estratégico</span></a><span class="pontos"></span><span class="pagina">10</span></div>
+      <div class="sumario-linha principal" data-sec="s5"><a href="#"><span class="titulo">5 Resultados e análise</span></a><span class="pontos"></span><span class="pagina">11</span></div>
+      <div class="sumario-linha sub" data-sec="s5-1"><a href="#"><span class="titulo">5.1 Apresentação da base de dados</span></a><span class="pontos"></span><span class="pagina">11</span></div>
+      <div class="sumario-linha sub" data-sec="s5-2"><a href="#"><span class="titulo">5.2 Evolução do uso da Internet</span></a><span class="pontos"></span><span class="pagina">12</span></div>
+      <div class="sumario-linha sub" data-sec="s5-3"><a href="#"><span class="titulo">5.3 Comparação com a média dos três países</span></a><span class="pontos"></span><span class="pagina">13</span></div>
+      <div class="sumario-linha sub" data-sec="s5-4"><a href="#"><span class="titulo">5.4 Diferenças em relação a cada país</span></a><span class="pontos"></span><span class="pagina">14</span></div>
+      <div class="sumario-linha sub" data-sec="s5-5"><a href="#"><span class="titulo">5.5 Síntese comparativa</span></a><span class="pontos"></span><span class="pagina">15</span></div>
+      <div class="sumario-linha sub" data-sec="s5-6"><a href="#"><span class="titulo">5.6 Ritmo de crescimento e subperíodos</span></a><span class="pontos"></span><span class="pagina">16</span></div>
+      <div class="sumario-linha principal" data-sec="s6"><a href="#"><span class="titulo">6 Aplicações na administração</span></a><span class="pontos"></span><span class="pagina">17</span></div>
+      <div class="sumario-linha principal" data-sec="s7"><a href="#"><span class="titulo">7 Limitações da pesquisa</span></a><span class="pontos"></span><span class="pagina">19</span></div>
+      <div class="sumario-linha principal" data-sec="s8"><a href="#"><span class="titulo">8 Conclusão</span></a><span class="pontos"></span><span class="pagina">20</span></div>
+      <div class="sumario-linha principal" data-sec="refs"><a href="#"><span class="titulo">Referências</span></a><span class="pontos"></span><span class="pagina">21</span></div>
+      <div class="sumario-linha principal" data-sec="anexo-a"><a href="#"><span class="titulo">Anexo A — Série anual completa</span></a><span class="pontos"></span><span class="pagina">22</span></div>
+      <div class="sumario-linha principal" data-sec="anexo-b"><a href="#"><span class="titulo">Anexo B — Série histórica 1990–2024</span></a><span class="pontos"></span><span class="pagina">23</span></div>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">2</span>
+  </div>
+</section>
+
+<!-- ========================================================= 3. RESUMO -->
+<section class="page" data-page="3" id="pagina-3">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>Resumo</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="resumo">RESUMO</h2>
+
+    <p>
+      A inclusão digital tornou-se condição para o exercício da cidadania e para a participação na
+      economia contemporânea. Este trabalho analisa a evolução do percentual de indivíduos que
+      utilizam a Internet no Brasil, na Argentina, no Chile e no Uruguai entre 2000 e 2024, com base
+      no indicador <em>IT.NET.USER.ZS</em> — <em>Individuals using the Internet (% of population)</em> —
+      do Banco Mundial, coletado diretamente pela API oficial da instituição. A pesquisa é
+      quantitativa, descritiva e comparativa, e adota o período comum aos quatro países como base de
+      comparação, sem interpolação de dados ausentes.
+    </p>
+    <p>
+      Os resultados mostram difusão praticamente contínua e convergência entre os países: o Brasil
+      passou de 2,87% para 84,46% da população com acesso à Internet, avanço de 81,59 pontos
+      percentuais; a Argentina cresceu de 7,04% para 89,67% (+82,63 pp); o Uruguai, de 10,54% para
+      91,99% (+81,45 pp); e o Chile, de 16,60% para 95,59% (+78,99 pp). Apesar do crescimento
+      elevado, o Brasil permaneceu abaixo da média dos três países em 2024 (84,46% contra 92,42%,
+      diferença de −7,95 pp) e apresentou a menor média do período (47,39%). O Chile liderou em 19
+      dos 25 anos analisados.
+    </p>
+    <p>
+      Observou-se desaceleração generalizada no quinquênio 2020–2024, com ritmo brasileiro de
+      0,78 pp por ano, contra 2,03 pp por ano no Chile. A interpretação administrativa é que o desafio
+      central deixou de ser a expansão do número de usuários e passou a envolver a qualificação do
+      uso, a integração de canais e a atenção à parcela da população ainda não plenamente incluída.
+      O estudo é descritivo e não permite inferência causal, pois o indicador não contempla
+      qualidade de conexão, custo, disponibilidade de equipamentos, alfabetização digital nem
+      desigualdades internas de acesso.
+    </p>
+
+    <p style="margin-top:5mm">
+      <strong>Palavras-chave:</strong> inclusão digital; acesso à Internet; América do Sul;
+      Business Intelligence; tecnologia da informação e comunicação; administração.
+    </p>
+
+    <h3 style="margin-top:9mm">Lista de ilustrações</h3>
+    <div class="duas-colunas" style="font-family:var(--sans);font-size:8.6pt;line-height:1.55">
+      <div>
+        <p style="text-align:left;margin-bottom:1.5mm"><strong>Gráficos</strong></p>
+        <p style="text-align:left;margin-bottom:1.2mm">Gráfico 1 — Evolução do uso da Internet na América do Sul</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Gráfico 2 — Brasil e média de Argentina, Chile e Uruguai</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Gráfico 3 — Diferença entre o Brasil e cada país</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Gráfico 4 — Série histórica completa (1990–2024)</p>
+      </div>
+      <div>
+        <p style="text-align:left;margin-bottom:1.5mm"><strong>Tabelas</strong></p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela 1 — Delineamento metodológico</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela 2 — Valores selecionados do indicador</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela 3 — Síntese das métricas por país</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela 4 — Diferenças entre o Brasil e cada país</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela 5 — Ritmo de crescimento por subperíodo</p>
+        <p style="text-align:left;margin-bottom:1.2mm">Tabela A1 — Série anual completa (Anexo A)</p>
+      </div>
+    </div>
+
+    <div class="aviso-validacao" style="margin-top:10mm">
+      <strong>Registro de integridade dos dados.</strong> A base utilizada possui
+      <span data-observacoes>135</span> observações (quatro países × anos disponíveis), sem anos
+      duplicados, sem valores nulos no período de análise e sem qualquer valor imputado. A coleta foi
+      executada por duas implementações independentes — <em>scripts/fetch_data.py</em> (Python) e
+      <em>scripts/fetch_data.ps1</em> (PowerShell) — cujos resultados foram idênticos. A verificação
+      automatizada (<em>scripts/validate.py</em>) conferiu a coerência entre JSON, CSV e o espelho
+      JavaScript usado pelo documento.
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">3</span>
+  </div>
+</section>
+
+<!-- ====================================================== 4. INTRODUÇÃO -->
+<section class="page" data-page="4" id="pagina-4">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>1 Introdução</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s1"><span class="numero">1</span>INTRODUÇÃO</h2>
+
+    <h3 data-destino="s1-1">1.1 Contextualização e problema de pesquisa</h3>
+    <p>
+      A difusão das tecnologias de informação e comunicação reorganizou a forma como as pessoas
+      trabalham, estudam, consomem, se informam e se relacionam com o poder público. Serviços
+      bancários, matrículas escolares, agendamentos de saúde, declarações fiscais, compras e
+      candidaturas de emprego migraram, total ou parcialmente, para ambientes digitais. Nesse
+      contexto, estar conectado deixou de ser uma conveniência e passou a funcionar como condição de
+      acesso a direitos e a oportunidades econômicas.
+    </p>
+    <p>
+      O conceito de inclusão digital procura dar conta desse fenômeno. Ele não se confunde com a
+      simples existência de infraestrutura de telecomunicações: envolve a possibilidade efetiva de
+      acessar a rede, a disponibilidade de dispositivos adequados, a capacidade econômica de manter a
+      conexão, as habilidades necessárias para usar serviços digitais e a qualidade da experiência de
+      uso. Quando uma ou mais dessas dimensões falham, forma-se o que a literatura denomina
+      exclusão digital, que tende a reproduzir desigualdades preexistentes de renda, escolaridade e
+      território.
+    </p>
+    <p>
+      A comparação internacional oferece um ângulo útil para observar esse processo. Países vizinhos,
+      submetidos a choques macroeconômicos e a políticas públicas distintas, apresentam trajetórias
+      de adoção tecnológica que nem sempre evoluem no mesmo ritmo. Identificar quando e em que
+      medida essas trajetórias se aproximam ou se afastam permite qualificar o debate sobre
+      infraestrutura, regulação e estratégia empresarial, sem recorrer a impressões ou a casos
+      isolados.
+    </p>
+    <p>
+      O problema de pesquisa pode ser formulado nos seguintes termos: <em>como evoluiu o acesso da
+      população à Internet no Brasil, na Argentina, no Chile e no Uruguai entre 2000 e 2024, e em que
+      medida a posição relativa brasileira se alterou ao longo desse período?</em> A pergunta é
+      respondida com dados oficiais, tratados de forma reprodutível, e com interpretação orientada
+      para a prática administrativa.
+    </p>
+
+    <h3 data-destino="s1-2" style="margin-top:6mm">1.2 Justificativa</h3>
+    <p>
+      A escolha do tema se justifica por três razões. A primeira é a centralidade do acesso à
+      Internet para a gestão: decisões de canal, de portfólio de serviços, de investimento em
+      plataformas digitais e de segmentação de mercado dependem do tamanho e da velocidade de
+      formação da população conectada. A segunda é a disponibilidade de dados públicos de qualidade,
+      que permite substituir estimativas por medições verificáveis. A terceira é a possibilidade de
+      aplicar, em um estudo de pequeno porte, o encadeamento típico de um projeto de Business
+      Intelligence: extração de dados em fonte oficial, tratamento, cálculo de indicadores,
+      visualização e uso na decisão.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">4</span>
+  </div>
+</section>
+
+<!-- ================================================== 5. INTRODUÇÃO/OBJ -->
+<section class="page" data-page="5" id="pagina-5">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>1 Introdução · 2 Objetivos</span>
+  </div>
+
+  <div class="page-conteudo">
+    <p>
+      Delimita-se a pesquisa ao período de 2000 a 2024, recorte que corresponde ao intervalo com
+      informações anuais completas para os quatro países selecionados. A unidade de análise é o país,
+      e a medida utilizada é a proporção da população que utilizou a Internet nos três meses
+      anteriores à pesquisa de origem. Não fazem parte do escopo a análise de políticas públicas
+      específicas, a mensuração de qualidade de conexão ou a comparação com países de outras regiões.
+    </p>
+
+    <h2 class="secao" data-destino="s2" style="margin-top:9mm"><span class="numero">2</span>OBJETIVOS</h2>
+
+    <h3>2.1 Objetivo geral</h3>
+    <p>
+      Analisar, de forma comparativa e com base em dados públicos oficiais, a evolução do acesso à
+      Internet no Brasil, na Argentina, no Chile e no Uruguai entre 2000 e 2024, identificando
+      tendências, diferenças entre os países e implicações administrativas decorrentes desse processo.
+    </p>
+
+    <h3>2.2 Objetivos específicos</h3>
+    <ol>
+      <li>
+        Coletar, por meio da API do Banco Mundial, as observações do indicador
+        <em>IT.NET.USER.ZS</em> para os quatro países, registrando data, endpoint e metadados da coleta.
+      </li>
+      <li>
+        Verificar a integridade da base: paginação, duplicidades, ordenação, intervalo de validade dos
+        percentuais e existência de lacunas.
+      </li>
+      <li>
+        Identificar o último ano disponível em cada série e o período comum aos quatro países,
+        adotando-o como base de comparação.
+      </li>
+      <li>
+        Descrever a evolução histórica de cada país no período comum e identificar os períodos de
+        crescimento mais expressivo e de desaceleração.
+      </li>
+      <li>
+        Calcular a média anual dos três países estrangeiros e a diferença, em pontos percentuais, entre
+        o Brasil e essa média.
+      </li>
+      <li>
+        Comparar o crescimento absoluto, em pontos percentuais, e o crescimento relativo de cada país,
+        distinguindo explicitamente as duas medidas.
+      </li>
+      <li>
+        Construir gráficos de linhas comparativos, com dados reais, e interpretá-los de forma articulada
+        com conceitos de Administração e de Sistemas de Informação.
+      </li>
+      <li>
+        Sistematizar aplicações práticas dos resultados para planejamento estratégico, transformação
+        digital, comércio eletrônico, marketing, sistemas de informação e relacionamento com clientes.
+      </li>
+    </ol>
+
+    <div class="nota" style="margin-top:6mm">
+      <span class="nota-titulo">Critério de comparação</span>
+      <p>
+        Adota-se o período de 2000 a 2024 porque é o intervalo em que os quatro países possuem
+        observações anuais sem interrupção. Comparações que utilizassem o último ano isolado de cada
+        série — todos coincidentes em 2024, neste caso — produziriam o mesmo resultado, mas o recorte
+        comum garante que as trajetórias sejam avaliadas sobre a mesma janela temporal.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">5</span>
+  </div>
+</section>
+
+<!-- ===================================================== 6. METODOLOGIA -->
+<section class="page" data-page="6" id="pagina-6">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>3 Metodologia</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s3"><span class="numero">3</span>METODOLOGIA</h2>
+
+    <h3 data-destino="s3-1">3.1 Delineamento da pesquisa</h3>
+    <p>
+      A pesquisa é de natureza quantitativa, com finalidade descritiva e procedimento comparativo.
+      Não há manipulação de variáveis nem grupo de controle: observa-se a evolução de um indicador já
+      produzido por instituições oficiais e comparam-se as trajetórias de quatro países. O tratamento
+      estatístico é descritivo — diferenças, médias, variações e amplitudes — e não inferencial.
+    </p>
+    <p>
+      A opção por dados secundários deve-se a três fatores: cobertura internacional homogênea,
+      possibilidade de reprodução por terceiros e inexistência de custo de coleta primária. A
+      contrapartida é a dependência da metodologia adotada pela instituição produtora, discutida na
+      seção 7.
+    </p>
+
+    <h3 data-destino="s3-2">3.2 Fonte de dados e consulta à API</h3>
+    <p>
+      A fonte é o Banco Mundial, por meio da base <em>World Development Indicators</em> (WDI), que
+      reúne indicadores econômicos e sociais de mais de duzentos países. O indicador escolhido é o
+      <em>IT.NET.USER.ZS</em>, cuja série é compilada pelo Banco Mundial a partir da base da União
+      Internacional de Telecomunicações (ITU), instituição responsável pela consolidação de
+      estatísticas nacionais de telecomunicações.
+    </p>
+    <p>
+      Os dados foram obtidos por requisições HTTP ao endpoint público
+      <span style="font-family:var(--sans);font-size:8.8pt">api.worldbank.org/v2/country/{país}/indicator/IT.NET.USER.ZS?format=json</span>,
+      com paginação verificada e registro do código de status de cada resposta. A consulta agregada
+      dos quatro países em uma única chamada (com os códigos separados por ponto e vírgula) é
+      bloqueada pelo mecanismo de proteção do Banco Mundial em parte dos ambientes, retornando erro
+      HTTP 502. Por esse motivo, a coleta foi executada com uma requisição por país, no mesmo
+      endpoint oficial, e os quatro retornos foram consolidados em uma base única. O conteúdo
+      obtido é idêntico ao da consulta agregada: os mesmos registros, com os mesmos valores, para os
+      mesmos anos.
+    </p>
+    <p>
+      A coleta foi realizada em <span data-coleta>—</span>, e a API informava, na ocasião, última
+      atualização em <span data-api-atualizada>—</span>. Cada resposta inclui metadados
+      (total de registros, número de páginas e data de atualização), que foram preservados no arquivo
+      <span style="font-family:var(--sans);font-size:8.8pt">data/internet_users.json</span>.
+    </p>
+    <div class="nota">
+      <span class="nota-titulo">Definição do indicador</span>
+      <p>
+        <em>Individuals using the Internet (% of population)</em>: percentual de indivíduos que
+        utilizaram a Internet, de qualquer local ou dispositivo, nos três meses anteriores à
+        realização da pesquisa de origem. A unidade é o percentual da população total do país.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">6</span>
+  </div>
+</section>
+
+<!-- ============================================== 7. METODOLOGIA (cont) -->
+<section class="page" data-page="7" id="pagina-7">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>3 Metodologia</span>
+  </div>
+
+  <div class="page-conteudo">
+    <div class="tabela-bloco">
+      <div class="tabela-titulo">Tabela 1 — Delineamento metodológico da pesquisa</div>
+      <table>
+        <thead>
+          <tr><th>Elemento</th><th style="text-align:left">Definição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fonte</td><td style="text-align:left">Banco Mundial — World Development Indicators (WDI), dataset 2; série compilada a partir da ITU.</td></tr>
+          <tr><td>Indicador</td><td style="text-align:left">IT.NET.USER.ZS — indivíduos que usam a Internet (% da população).</td></tr>
+          <tr><td>Países</td><td style="text-align:left">Brasil (BRA), Argentina (ARG), Chile (CHL) e Uruguai (URY).</td></tr>
+          <tr><td>Período</td><td style="text-align:left"><span data-periodo>2000–2024</span> (25 anos), período comum aos quatro países, sem lacunas.</td></tr>
+          <tr><td>Frequência</td><td style="text-align:left">Anual.</td></tr>
+          <tr><td>Unidade</td><td style="text-align:left">Percentual da população total do país.</td></tr>
+          <tr><td>Tratamento</td><td style="text-align:left">Valores preservados como retornados pela API; ausências mantidas como ausentes; sem interpolação.</td></tr>
+          <tr><td>Validação</td><td style="text-align:left">Testes automatizados de integridade e conferência entre duas coletas independentes.</td></tr>
+        </tbody>
+      </table>
+      <div class="fonte-tabela">Fonte: Banco Mundial (WDI). Elaboração própria.</div>
+    </div>
+
+    <h3 data-destino="s3-3" style="margin-top:6mm">3.3 Tratamento, validação e métricas</h3>
+    <p>
+      O tratamento consistiu em: (i) converter o JSON da API em estrutura ordenada por país e por
+      ano; (ii) manter apenas as observações efetivamente divulgadas, registrando os anos ausentes
+      como ausência — e nunca como zero; (iii) calcular o período comum entre as quatro séries; e
+      (iv) derivar as métricas de análise. Não houve arredondamento na base: os valores são
+      preservados com a precisão publicada e arredondados apenas na apresentação, com duas casas
+      decimais.
+    </p>
+    <p>
+      A validação foi executada por um script dedicado que verifica a existência das chaves
+      obrigatórias, a ordenação e a unicidade dos anos, o intervalo válido dos percentuais (0 a 100),
+      a ausência de lacunas no período de análise e a identidade entre a base JSON, o arquivo CSV e o
+      espelho JavaScript. Adicionalmente, duas implementações independentes da coleta — em Python e
+      em PowerShell — produziram bases idênticas, o que reduz o risco de erro sistemático de
+      extração.
+    </p>
+    <p>
+      As métricas calculadas são: valor inicial e final de cada série; diferença em pontos
+      percentuais; variação relativa; média do período; mínimo e máximo; média aritmética anual dos
+      três países estrangeiros; diferença, em pontos percentuais, entre o Brasil e essa média;
+      diferença entre o Brasil e cada país; amplitude entre os quatro países em cada ano; e variação
+      média anual por subperíodo (2000–2009, 2010–2019 e 2020–2024).
+    </p>
+    <div class="nota">
+      <span class="nota-titulo">Pontos percentuais não são variação percentual</span>
+      <p>
+        Uma diferença em pontos percentuais é a subtração direta entre dois percentuais. Uma variação
+        relativa é a razão entre essa diferença e o valor inicial. O Brasil cresceu 81,59 pontos
+        percentuais entre 2000 e 2024; em termos relativos, isso corresponde a um crescimento de
+        aproximadamente 2.842%, porque a base inicial era muito pequena (2,87%). As duas leituras são
+        corretas, mas respondem a perguntas diferentes: a primeira mede a expansão absoluta da
+        cobertura; a segunda, o esforço proporcional a partir do ponto de partida.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">7</span>
+  </div>
+</section>
+
+<!-- ======================================== 8. FUNDAMENTAÇÃO CONCEITUAL -->
+<section class="page" data-page="8" id="pagina-8">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>4 Fundamentação conceitual</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s4"><span class="numero">4</span>FUNDAMENTAÇÃO CONCEITUAL</h2>
+
+    <h3 data-destino="s4-1">4.1 Tecnologia da informação e comunicação</h3>
+    <p>
+      As tecnologias de informação e comunicação (TIC) compreendem o conjunto de recursos
+      tecnológicos empregados na geração, no armazenamento, no processamento e na transmissão de
+      informação. Esse conjunto reúne hardware, software, redes de telecomunicações, bancos de dados
+      e os procedimentos que articulam esses elementos. Nas organizações, as TIC não atuam apenas
+      como ferramenta de apoio: alteram a estrutura de coordenação, reduzem custos de transação e
+      viabilizam arranjos produtivos que não existiriam sem elas.
+    </p>
+    <p>
+      A difusão das TIC segue, tipicamente, um padrão de adoção crescente que desacelera à medida que
+      a população-alvo se aproxima da saturação. Esse padrão é relevante para a leitura dos dados
+      deste estudo: taxas próximas de 90% não devem ser interpretadas como estagnação, mas como
+      aproximação do limite superior de uma medida de cobertura.
+    </p>
+
+    <h3 data-destino="s4-2">4.2 Inclusão digital</h3>
+    <p>
+      Inclusão digital é o processo pelo qual indivíduos e grupos sociais passam a ter acesso
+      significativo às TIC e às oportunidades que delas decorrem. O conceito costuma ser decomposto
+      em camadas complementares: o acesso físico à infraestrutura e aos dispositivos; o acesso
+      econômico, que envolve o custo de conexão em relação à renda; o acesso cognitivo, relacionado a
+      habilidades e letramento digital; e a qualidade do uso, que distingue a conexão precária da
+      conexão efetiva.
+    </p>
+    <p>
+      Essa decomposição explica por que um indicador de cobertura, como o utilizado nesta pesquisa,
+      é necessário mas não suficiente. Um país pode apresentar percentual elevado de usuários e,
+      simultaneamente, concentração do acesso em determinados estratos de renda, uso limitado a
+      aplicações de baixo valor ou dependência de conexões de baixa qualidade. A inclusão digital,
+      portanto, é um processo com dimensões quantitativas e qualitativas, e a leitura de séries de
+      cobertura deve ser complementada por indicadores de qualidade, custo e habilidades.
+    </p>
+    <p>
+      Do ponto de vista da Administração, a inclusão digital define o tamanho do mercado endereçável
+      de qualquer serviço mediado por tecnologia. Organizações que planejam canais digitais precisam
+      conhecer não apenas a proporção de usuários, mas também quem são os não usuários, onde estão e
+      por que permanecem fora da rede — informação que um indicador agregado não fornece.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">8</span>
+  </div>
+</section>
+
+<!-- ================================== 9. FUNDAMENTAÇÃO (continuação) -->
+<section class="page" data-page="9" id="pagina-9">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>4 Fundamentação conceitual</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s4-3">4.3 Transformação digital</h3>
+    <p>
+      Transformação digital designa a mudança profunda de processos, modelos de negócio e formas de
+      entrega de valor possibilitada pelo uso intensivo de tecnologia digital. Distingue-se de
+      digitalização, que é a conversão de documentos e rotinas para formato digital, e de
+      digitização, que é a transformação de sinais analógicos em dados binários. Enquanto as duas
+      últimas são operacionais, a transformação digital altera a lógica de funcionamento da
+      organização.
+    </p>
+    <p>
+      A literatura de administração costuma apontar que a transformação digital não é um projeto com
+      início e fim, mas um processo contínuo que envolve estratégia, cultura, dados e capacidades
+      tecnológicas. Um de seus pressupostos é a existência de usuários conectados: sem base de
+      clientes com acesso à Internet, canais digitais tendem a complementar, e não a substituir, os
+      canais tradicionais. Os dados analisados nesta pesquisa indicam que, nos quatro países, esse
+      pressuposto está amplamente atendido em 2024, o que desloca o gargalo para outras dimensões.
+    </p>
+
+    <h3 data-destino="s4-4">4.4 Sistemas de informação</h3>
+    <p>
+      Sistemas de informação são conjuntos organizados de pessoas, processos, dados e tecnologias que
+      coletam, processam, armazenam e distribuem informação para apoiar decisões, coordenação e
+      controle. Em uma organização, eles cumprem três funções interdependentes: registro das
+      operações, apoio à decisão e suporte à coordenação entre áreas.
+    </p>
+    <p>
+      A eficácia de um sistema de informação depende tanto de fatores técnicos quanto de fatores
+      organizacionais e comportamentais. Um portal de autoatendimento, por exemplo, só produz
+      redução de custo se o usuário tiver acesso à Internet, habilidade para utilizá-lo e confiança
+      no serviço. É exatamente nesse ponto que a inclusão digital se conecta à gestão de sistemas:
+      a cobertura da população funciona como condição de contorno para o desenho de soluções e para
+      a estimativa de retorno de projetos de tecnologia.
+    </p>
+    <p>
+      Sob essa perspectiva, os dados de acesso à Internet podem ser tratados como variável de
+      contexto em estudos de viabilidade. Eles não determinam o sucesso de um sistema, mas delimitam
+      o universo de usuários potencialmente alcançáveis por canais digitais e ajudam a dimensionar a
+      necessidade de canais alternativos.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">9</span>
+  </div>
+</section>
+
+<!-- ================================== 10. FUNDAMENTAÇÃO (continuação) -->
+<section class="page" data-page="10" id="pagina-10">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>4 Fundamentação conceitual</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s4-5">4.5 Business Intelligence</h3>
+    <p>
+      Business Intelligence (BI) designa o conjunto de processos, tecnologias e práticas empregados
+      para transformar dados dispersos em informação útil à decisão. Um projeto de BI típico percorre
+      cinco etapas: identificação das fontes; extração e integração dos dados; tratamento e
+      padronização; cálculo de indicadores; e apresentação em painéis, relatórios ou gráficos. A
+      qualidade do resultado depende menos da ferramenta escolhida e mais da consistência das etapas
+      anteriores.
+    </p>
+    <p>
+      Este trabalho pode ser lido como um exercício completo desse encadeamento em escala reduzida.
+      A fonte é a API do Banco Mundial; a extração foi feita por script, com registro de data e
+      metadados; o tratamento padronizou os registros e preservou as ausências; os indicadores foram
+      calculados de forma reprodutível; e a apresentação ocorre em dois artefatos — um painel
+      interativo e este relatório. A mesma base alimenta ambos, o que evita divergência entre
+      números apresentados em contextos diferentes.
+    </p>
+    <p>
+      Um princípio central de BI é a distinção entre dado, informação e conhecimento. O dado é o
+      registro bruto (por exemplo, 84,46347227); a informação é o dado contextualizado ("o Brasil
+      tinha 84,46% de usuários de Internet em 2024"); o conhecimento é a interpretação que orienta a
+      ação ("o crescimento por novos usuários desacelerou, portanto o foco deve migrar para
+      intensidade de uso"). O valor de um projeto de BI está em percorrer essa cadeia sem perder
+      rastreabilidade.
+    </p>
+
+    <h3 data-destino="s4-6">4.6 Informação como recurso estratégico</h3>
+    <p>
+      Na literatura de administração, a informação é tratada como recurso estratégico porque reduz
+      incerteza e melhora a qualidade das decisões. Diferentemente de recursos físicos, ela pode ser
+      compartilhada sem se esgotar e ganha valor quando integrada a outros dados e a conhecimento
+      acumulado. Organizações que estruturam processos de coleta e análise tendem a responder mais
+      rapidamente a mudanças de mercado.
+    </p>
+    <p>
+      No caso deste estudo, a informação sobre a trajetória de acesso à Internet permite três usos
+      estratégicos: dimensionar mercados e canais; antecipar a saturação de estratégias de aquisição
+      de usuários; e identificar segmentos ainda não atendidos. Nenhum desses usos dispensa
+      julgamento humano: os dados informam a decisão, mas não a substituem.
+    </p>
+
+    <div class="nota" style="margin-top:5mm">
+      <span class="nota-titulo">Síntese da fundamentação</span>
+      <p>
+        As TIC criam a possibilidade técnica de conexão; a inclusão digital descreve a apropriação
+        efetiva dessa possibilidade; a transformação digital converte essa apropriação em novos
+        modelos de operação; os sistemas de informação organizam os processos decorrentes; o Business
+        Intelligence transforma os registros em informação para decisão; e a informação, por fim,
+        opera como recurso estratégico. Os capítulos seguintes aplicam esse encadeamento aos dados
+        coletados.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">10</span>
+  </div>
+</section>
+
+<!-- ================================================ 11. RESULTADOS 5.1 -->
+<section class="page" data-page="11" id="pagina-11">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s5"><span class="numero">5</span>RESULTADOS E ANÁLISE</h2>
+
+    <h3 data-destino="s5-1">5.1 Apresentação da base de dados</h3>
+    <p>
+      A base consolidada reúne <span data-observacoes>135</span> observações anuais, distribuídas
+      entre os quatro países. O último ano disponível é 2024 para todos, o que permite comparação
+      contemporânea sem defasagem entre as séries. O período de análise adotado é
+      <span data-periodo>2000–2024</span>, integralmente coberto pelas quatro séries.
+    </p>
+    <p>
+      Antes de 2000, a cobertura é desigual: a Argentina e o Chile não possuem observação em 1991, e
+      o Uruguai não possui observações em 1991, 1992 e 1993. Esses registros foram preservados como
+      ausentes. O Anexo B apresenta a série completa de 1990 a 2024 com as descontinuidades
+      explicitadas, e o Anexo A traz a tabela anual com todos os valores.
+    </p>
+
+    <div class="tabela-bloco" style="margin-top:4mm">
+      <div class="tabela-titulo">Tabela 2 — Valores selecionados do indicador (% da população)</div>
+      <table style="font-size:8pt">
+        <thead>
+          <tr><th>Ano</th><th>Brasil</th><th>Argentina</th><th>Chile</th><th>Uruguai</th><th>Média ARG/CHL/URY</th><th>Brasil − média</th></tr>
+        </thead>
+        <tbody id="tab-selecionados"></tbody>
+      </table>
+      <div class="fonte-tabela">Fonte: Banco Mundial (WDI). Valores observados, sem interpolação. Média e diferença calculadas pelo autor.</div>
+    </div>
+
+    <div class="figura" style="margin-top:5mm">
+      <div class="figura-titulo">Gráfico 1 — Evolução do uso da Internet na América do Sul</div>
+      <div class="figura-sub">Indivíduos que usam a Internet (% da população) · Brasil, Argentina, Chile e Uruguai · 2000–2024</div>
+      <div class="figura-svg" id="graf-1"></div>
+      <div class="figura-fonte">Fonte: Banco Mundial, World Development Indicators (indicador IT.NET.USER.ZS), API consultada em <span data-coleta>—</span>. Elaboração própria.</div>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">11</span>
+  </div>
+</section>
+
+<!-- ================================================ 12. RESULTADOS 5.2 -->
+<section class="page" data-page="12" id="pagina-12">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s5-2">5.2 Evolução do uso da Internet</h3>
+    <p>
+      O Gráfico 1 apresenta as quatro séries no período comum. O primeiro resultado observado é a
+      magnitude da expansão: em 2000, o país com maior percentual era o Chile, com 16,60% da
+      população usando Internet; o Brasil registrava 2,87%, a Argentina 7,04% e o Uruguai 10,54%. Em
+      2024, os quatro países se situavam entre 84,46% e 95,59%. Trata-se, portanto, de mudança de
+      escala: o acesso, antes restrito a uma minoria, tornou-se atributo da maior parte da população.
+    </p>
+    <p>
+      O segundo resultado é a forma da trajetória. As curvas são ascendentes em praticamente todos os
+      anos, com inclinação mais acentuada entre 2005 e 2014 e progressiva perda de inclinação a partir
+      de 2016. Esse formato é compatível com o padrão de difusão tecnológica descrito na seção 4.1:
+      crescimento acelerado enquanto a base é pequena, seguido de desaceleração à medida que a
+      cobertura se aproxima do limite superior da medida. A observação é descritiva; não se afirma,
+      com base nela, qual fator explica a desaceleração.
+    </p>
+    <p>
+      O terceiro resultado é a hierarquia entre os países. O Chile ocupa a maior taxa em 19 dos 25
+      anos analisados. O Uruguai lidera entre 2008 e 2010 e a Argentina entre 2012 e 2014. O Brasil
+      não ocupa a primeira posição em nenhum ano do período. Essa distribuição sugere que a liderança
+      regional não é estável: ela se altera em função de ritmos nacionais diferenciados, e não de uma
+      vantagem estrutural permanente de um país sobre os demais.
+    </p>
+    <p>
+      O quarto resultado diz respeito à dispersão. A amplitude entre o maior e o menor percentual
+      cai de 13,73 pp em 2000 para 5,75 pp em 2010, sobe para 22,69 pp em 2016 — influenciada pelo
+      salto chileno de 2015 — e termina 2024 em 11,13 pp. A trajetória da amplitude não é monotônica:
+      há convergência na primeira década e novo afastamento a partir de 2014, sem retorno ao padrão
+      inicial.
+    </p>
+    <p>
+      Por fim, cabe registrar o comportamento específico do Brasil. Entre 2015 e 2016, o país cresceu,
+      mas em ritmo inferior ao dos vizinhos, e a distância em relação ao líder aumentou. Em 2020,
+      houve avanço de 7,43 pp em um único ano (de 73,91% para 81,34%), seguido de duas quedas anuais
+      consecutivas — 2021 (−0,65 pp) e 2022 (−0,16 pp) — e de recuperação em 2023 (+3,62 pp). Esse
+      padrão de oscilação não é observado na Argentina nem no Uruguai no mesmo intervalo.
+    </p>
+    <p>
+      Uma forma complementar de descrever o período é observar a ordenação dos países em três
+      momentos. Em 2000, a sequência era Chile (16,60%), Uruguai (10,54%), Argentina (7,04%) e Brasil
+      (2,87%). Em 2012, ela se altera para Argentina (55,80%), Chile (55,05%), Uruguai (54,45%) e
+      Brasil (48,56%). Em 2024, volta a ser Chile (95,59%), Uruguai (91,99%), Argentina (89,67%) e
+      Brasil (84,46%). Duas leituras decorrem daí: a primeira posição alternou entre os três vizinhos,
+      o que indica ausência de liderança estrutural estável; e o Brasil ocupou a última posição nos
+      três momentos, o que indica persistência da desvantagem relativa, ainda que a distância em
+      relação ao líder tenha variado.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">12</span>
+  </div>
+</section>
+
+<!-- ================================================ 13. RESULTADOS 5.3 -->
+<section class="page" data-page="13" id="pagina-13">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s5-3">5.3 Comparação com a média dos três países</h3>
+
+    <div class="figura">
+      <div class="figura-titulo">Gráfico 2 — Brasil e média de Argentina, Chile e Uruguai</div>
+      <div class="figura-sub">Indivíduos que usam a Internet (% da população) · 2000–2024</div>
+      <div class="figura-svg" id="graf-2"></div>
+      <div class="figura-fonte">Fonte: Banco Mundial (WDI). Média aritmética simples de Argentina, Chile e Uruguai, calculada pelo autor. Elaboração própria.</div>
+    </div>
+
+    <p>
+      A média dos três países estrangeiros parte de 11,39% em 2000 e alcança 92,42% em 2024. O Brasil
+      parte de 2,87% e chega a 84,46%. A distância inicial é de −8,52 pp, reduz-se até praticamente
+      desaparecer em 2009 (+0,10 pp) e volta a crescer a partir de 2010, atingindo o pior valor do
+      período em 2016 (−12,77 pp). Em 2020, o crescimento brasileiro de 7,43 pp reduz a diferença
+      para −4,81 pp; nos anos seguintes, a distância oscila e fecha 2024 em −7,95 pp.
+    </p>
+    <p>
+      A leitura desse gráfico permite separar dois fatos que costumam ser confundidos. O primeiro é
+      que o Brasil cresceu de forma expressiva: 81,59 pp em 24 anos. O segundo é que esse crescimento
+      foi insuficiente para alterar a posição relativa do país no grupo: a média dos vizinhos cresceu
+      ligeiramente mais, sobretudo depois de 2014. Não se observa, portanto, estagnação brasileira,
+      mas crescimento em ritmo inferior ao dos países tomados como referência.
+    </p>
+    <p>
+      A série também evidencia que a posição relativa do Brasil é sensível a eventos dos demais
+      países. A forte queda da diferença em 2020, por exemplo, coincide com um salto brasileiro e,
+      simultaneamente, com desaceleração dos vizinhos. Como a média é uma construção aritmética, ela
+      responde tanto ao numerador quanto ao denominador do grupo, o que reforça a necessidade de
+      consultar o Gráfico 3, que compara o Brasil com cada país individualmente.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">13</span>
+  </div>
+</section>
+
+<!-- ================================================ 14. RESULTADOS 5.4 -->
+<section class="page" data-page="14" id="pagina-14">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s5-4">5.4 Diferenças em relação a cada país</h3>
+
+    <div class="figura">
+      <div class="figura-titulo">Gráfico 3 — Diferença entre o Brasil e cada país</div>
+      <div class="figura-sub">Pontos percentuais (Brasil − país) · valores negativos indicam desvantagem brasileira · 2000–2024</div>
+      <div class="figura-svg" id="graf-3"></div>
+      <div class="figura-fonte">Fonte: Banco Mundial (WDI). Diferenças calculadas pelo autor. Elaboração própria.</div>
+    </div>
+
+    <p>
+      O Gráfico 3 desagrega a média em três comparações. A série Brasil − Chile é a de maior
+      oscilação: inicia em −13,73 pp, aproxima-se de zero no fim da primeira década (−2,34 pp em
+      2009) e atinge −22,69 pp em 2016, após o avanço chileno de 15,52 pp em 2015. A série
+      Brasil − Argentina é a mais próxima de zero e a única em que o Brasil assume vantagem:
+      +7,25 pp em 2006, com desvantagem máxima de −10,15 pp em 2014. A série Brasil − Uruguai
+      situa-se em posição intermediária, com pequena vantagem brasileira em 2004 (+2,01 pp) e
+      desvantagem máxima em 2018 (−10,29 pp).
+    </p>
+    <p>
+      Em 2024, as diferenças são de −5,20 pp em relação à Argentina, −7,53 pp em relação ao Uruguai e
+      −11,13 pp em relação ao Chile. O ordenamento confirma a leitura do Gráfico 1: o Chile é o país
+      mais distante, a Argentina é o mais próximo e o Uruguai ocupa posição intermediária.
+    </p>
+    <p>
+      A interpretação administrativa dessas três linhas é distinta da interpretação da média. Ao
+      separar os países, torna-se possível identificar que a desvantagem brasileira não é uniforme:
+      ela é pequena e intermitente em relação à Argentina, e grande e persistente em relação ao Chile.
+      Para decisões de alocação de recursos e de desenho de canal, essa distinção importa mais do que
+      a posição média no grupo, porque indica onde a lacuna é estrutural e onde ela é conjuntural.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">14</span>
+  </div>
+</section>
+
+<!-- ================================================ 15. RESULTADOS 5.5 -->
+<section class="page" data-page="15" id="pagina-15">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s5-5">5.5 Síntese comparativa</h3>
+
+    <div class="tabela-bloco">
+      <div class="tabela-titulo">Tabela 3 — Síntese das métricas por país (2000–2024)</div>
+      <table>
+        <thead>
+          <tr><th>País</th><th>2000</th><th>2024</th><th>Δ pp</th><th>Δ relativa</th><th>Média do período</th></tr>
+        </thead>
+        <tbody id="tab-metricas"></tbody>
+      </table>
+      <div class="fonte-tabela">Fonte: Banco Mundial (WDI). Δ pp = diferença em pontos percentuais; Δ relativa = variação percentual sobre o valor inicial. Elaboração própria.</div>
+    </div>
+
+    <p>
+      Em pontos percentuais, a Argentina é o país que mais cresce (+82,63 pp), seguida do Brasil
+      (+81,59 pp), do Uruguai (+81,45 pp) e do Chile (+78,99 pp). A diferença entre o maior e o menor
+      crescimento é de apenas 3,64 pp, o que indica expansão de magnitude semelhante nos quatro casos.
+      Em termos relativos, a ordem se inverte: Brasil (+2.842%), Argentina (+1.174%), Uruguai (+773%)
+      e Chile (+476%). Essa inversão decorre da base inicial: quanto menor o ponto de partida, maior o
+      espaço para variação relativa elevada.
+    </p>
+
+    <div class="tabela-bloco">
+      <div class="tabela-titulo">Tabela 4 — Diferenças entre o Brasil e cada país (2024 e extremos do período)</div>
+      <table>
+        <thead>
+          <tr><th>Comparação</th><th>País em 2024</th><th>Diferença em 2024</th><th>Máximo da série</th><th>Mínimo da série</th></tr>
+        </thead>
+        <tbody id="tab-diferencas"></tbody>
+      </table>
+      <div class="fonte-tabela">Fonte: Banco Mundial (WDI). Valores em pontos percentuais (Brasil − país), com o ano entre parênteses. Elaboração própria.</div>
+    </div>
+
+    <p>
+      As médias de 2000 a 2024 confirmam a hierarquia regional: Chile 57,43%, Uruguai 52,53%,
+      Argentina 50,79% e Brasil 47,39%. O Brasil apresenta, simultaneamente, o segundo maior
+      crescimento absoluto e a menor média do período — combinação consistente com um ponto de partida
+      mais baixo e com trajetória de recuperação parcial, mas insuficiente para alterar a ordem
+      regional.
+    </p>
+    <p>
+      A dispersão entre os quatro países também se alterou. Em 2000, a diferença entre o maior e o
+      menor percentual era de 13,73 pp; em 2024, de 11,13 pp. A redução, porém, não foi linear: o
+      indicador caiu para 5,75 pp em 2010, retornou a 22,69 pp em 2016 e recuou novamente nos anos
+      seguintes. Essa oscilação mostra que a convergência observada entre o primeiro e o último ano
+      não decorreu de trajetória contínua, mas de movimentos distintos em cada subperíodo — o que
+      reforça a utilidade da decomposição temporal apresentada na próxima seção.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">15</span>
+  </div>
+</section>
+
+<!-- ================================================ 16. RESULTADOS 5.6 -->
+<section class="page" data-page="16" id="pagina-16">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>5 Resultados e análise</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3 data-destino="s5-6">5.6 Ritmo de crescimento e subperíodos</h3>
+
+    <div class="tabela-bloco">
+      <div class="tabela-titulo">Tabela 5 — Ritmo de crescimento por subperíodo (pontos percentuais por ano)</div>
+      <table>
+        <thead>
+          <tr><th>Subperíodo</th><th>Brasil</th><th>Argentina</th><th>Chile</th><th>Uruguai</th></tr>
+        </thead>
+        <tbody id="tab-subperiodos"></tbody>
+      </table>
+      <div class="fonte-tabela">Fonte: Banco Mundial (WDI). Média anual da variação em pontos percentuais, entre o primeiro e o último ano de cada subperíodo. Elaboração própria.</div>
+    </div>
+
+    <p>
+      A decomposição por subperíodos revela três fases. Na primeira (2000–2009), o Brasil cresce
+      4,04 pp por ano, o ritmo mais intenso do grupo; o Uruguai avança 3,47 pp por ano, a Argentina
+      3,00 pp e o Chile 2,77 pp. Na segunda (2010–2019), a ordem se altera: o Chile passa a 4,45 pp por
+      ano, o Uruguai a 4,11 pp, a Argentina a 3,88 pp e o Brasil desacelera para 3,70 pp. Na terceira
+      (2020–2024), todos perdem ritmo: Chile 2,03 pp por ano, Uruguai 1,63 pp, Argentina 1,04 pp e
+      Brasil 0,78 pp.
+    </p>
+    <p>
+      Dois padrões merecem destaque. O primeiro é a desaceleração generalizada no último
+      quinquênio, compatível com a aproximação do limite de cobertura. O segundo é a inversão de
+      liderança entre subperíodos: o Brasil, que comandava o ritmo na primeira fase, passa a
+      apresentar o menor avanço anual na última. A mudança não indica retrocesso, pois o percentual
+      continua crescendo; indica alteração da posição relativa.
+    </p>
+    <p>
+      Os anos de crescimento excepcional concentram-se em momentos específicos: Chile em 2015
+      (+15,52 pp), Argentina em 2010 (+11,00 pp), Uruguai em 2018 (+10,40 pp) e Brasil em 2020
+      (+7,43 pp). Variações anuais dessa magnitude, quando isoladas, devem ser lidas com cautela,
+      pois podem refletir revisões de metodologia, mudanças no instrumento de coleta ou
+      atualizações de série — e não necessariamente mudança abrupta de comportamento.
+    </p>
+    <p>
+      As únicas quedas anuais observadas no período ocorrem no Brasil em 2021 (−0,65 pp) e 2022
+      (−0,16 pp) e no Chile em 2017 (−1,23 pp). Nos demais casos, as séries são monotonicamente
+      crescentes ou apresentam variação nula.
+    </p>
+
+    <div class="nota">
+      <span class="nota-titulo">Síntese dos achados</span>
+      <p>
+        (i) Expansão generalizada e convergência parcial entre 2000 e 2024; (ii) liderança chilena na
+        maior parte do período; (iii) Brasil com crescimento absoluto entre os maiores, mas com a
+        menor média do grupo e desvantagem de 7,95 pp em relação à média dos três países em 2024;
+        (iv) desaceleração comum no quinquênio 2020–2024, mais acentuada no Brasil.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">16</span>
+  </div>
+</section>
+
+<!-- ============================================ 17. APLICAÇÕES (parte 1) -->
+<section class="page" data-page="17" id="pagina-17">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>6 Aplicações na administração</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s6"><span class="numero">6</span>APLICAÇÕES NA ADMINISTRAÇÃO</h2>
+
+    <p>
+      Os resultados descrevem o ambiente em que as organizações operam. A seguir, relacionam-se
+      aplicações práticas, sempre delimitadas pelo que os dados permitem afirmar. Não se pretende
+      esgotar o tema, mas demonstrar como um indicador de cobertura pode informar decisões
+      administrativas.
+    </p>
+
+    <h3>6.1 Planejamento estratégico</h3>
+    <p>
+      Séries históricas de adoção tecnológica ajudam a dimensionar mercados e a calibrar metas. O
+      dado mais relevante para o planejamento não é o nível de cobertura, mas sua derivada: o ritmo de
+      crescimento. Com 84,46% da população brasileira usando Internet em 2024 e avanço médio de
+      0,78 pp por ano no quinquênio 2020–2024, o espaço de expansão por entrada de novos usuários é
+      reduzido. Metas de crescimento baseadas em aquisição de usuários inéditos tendem, portanto, a
+      se tornar progressivamente mais difíceis de atingir.
+    </p>
+    <p>
+      Em contrapartida, o mesmo dado sugere que o valor por usuário — frequência de uso, tempo de
+      permanência, transações por cliente — passa a ser a alavanca disponível. Planejamento
+      estratégico que ignore essa mudança de regime tende a superestimar o retorno de investimentos
+      em aquisição e a subestimar o retorno de investimentos em retenção e em qualidade de serviço.
+    </p>
+
+    <h3>6.2 Transformação digital das organizações</h3>
+    <p>
+      A comparação regional mostra que, em 2024, os quatro países têm mais de 84% da população
+      conectada. Esse patamar sustenta a migração de processos para canais digitais, mas não a
+      garante: a transformação digital depende também de processos internos, dados integrados e
+      capacidade de mudança. O indicador funciona, nesse contexto, como condição de contorno — ele
+      autoriza o desenho de jornadas digitais, mas não assegura que elas serão adotadas.
+    </p>
+    <p>
+      Uma implicação prática é que projetos de transformação digital podem ser priorizados por país
+      com base na cobertura disponível. O Chile, com 95,59% em 2024, oferece ambiente mais favorável a
+      jornadas exclusivamente digitais do que o Brasil, com 84,46%. Essa diferença de 11,13 pp não é
+      trivial quando se considera o custo de manter canais paralelos.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">17</span>
+  </div>
+</section>
+
+<!-- ============================================ 18. APLICAÇÕES (parte 2) -->
+<section class="page" data-page="18" id="pagina-18">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>6 Aplicações na administração</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h3>6.3 Comércio eletrônico</h3>
+    <p>
+      A proximidade entre as taxas de uso dos quatro países sugere condições relativamente homogêneas
+      de acesso à Internet para operações de comércio eletrônico. Ainda assim, a diferença de 11,13 pp
+      entre o maior e o menor percentual recomenda estratégias de canal adaptadas a cada mercado, e
+      não uma política única de entrada. Em países com cobertura mais alta, o investimento marginal
+      tende a se deslocar da expansão de alcance para logística, prazo e experiência de compra.
+    </p>
+    <p>
+      A desaceleração no crescimento da cobertura também afeta a economia unitária do varejo digital:
+      se o número de novos compradores cresce menos, a disputa se concentra em frequência de compra e
+      em ticket médio. Isso desloca a ênfase de campanhas de aquisição para programas de recompra,
+      personalização e atendimento pós-venda.
+    </p>
+
+    <h3>6.4 Marketing digital</h3>
+    <p>
+      A evolução das curvas permite periodizar a estratégia de mídia. Até meados da década de 2010, o
+      crescimento acelerado da base de usuários ampliava o alcance potencial de campanhas digitais a
+      cada ano. A partir de então, com a desaceleração, o ganho de alcance passa a depender mais de
+      segmentação e de qualidade criativa do que do crescimento orgânico da audiência.
+    </p>
+
+    <h3>6.5 Sistemas de informação e produtividade</h3>
+    <p>
+      Quanto maior a parcela da população conectada, maior a viabilidade de sistemas que dependem de
+      interação digital — autoatendimento, emissão de documentos, pagamentos e integração com
+      fornecedores. A cobertura de 84,46% no Brasil indica que sistemas digitais podem atender a maior
+      parte do público, mas não a totalidade. Projetos que desativam canais presenciais com base
+      apenas na média nacional tendem a excluir justamente os grupos com menor acesso, o que
+      compromete indicadores de produtividade aparente e de satisfação.
+    </p>
+
+    <h3>6.6 Relacionamento com clientes e inclusão de consumidores</h3>
+    <p>
+      A existência de uma parcela não conectada — cerca de 15,5% da população brasileira em 2024 —
+      justifica a manutenção de canais alternativos e de ações de inclusão digital. Do ponto de vista
+      do relacionamento, isso significa reconhecer perfis distintos de cliente e desenhar jornadas
+      híbridas, em que o canal digital é uma opção e não uma exigência.
+    </p>
+
+    <h3>6.7 Identificação de oportunidades de negócio</h3>
+    <p>
+      A convergência das curvas reduz o diferencial competitivo baseado apenas em presença digital.
+      As oportunidades tendem a migrar para três frentes: qualidade de conexão e serviços de valor
+      agregado sobre a infraestrutura existente; soluções de inclusão digital orientadas à parcela
+      não conectada; e ferramentas de produtividade para pequenos negócios que já operam conectados,
+      mas ainda utilizam processos manuais.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">18</span>
+  </div>
+</section>
+
+<!-- ==================================================== 19. LIMITAÇÕES -->
+<section class="page" data-page="19" id="pagina-19">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>7 Limitações da pesquisa</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s7"><span class="numero">7</span>LIMITAÇÕES DA PESQUISA</h2>
+
+    <p>
+      A principal limitação decorre do próprio indicador. O percentual de indivíduos que usaram a
+      Internet nos últimos três meses mede cobertura, e não qualidade nem intensidade. Ele
+      <strong>não mede</strong>:
+    </p>
+    <ul class="lista-limpa">
+      <li>a qualidade da conexão disponível (estabilidade, latência, franquia de dados);</li>
+      <li>a velocidade efetiva da Internet contratada;</li>
+      <li>o custo de acesso em relação à renda do usuário;</li>
+      <li>a disponibilidade e a adequação dos equipamentos;</li>
+      <li>a alfabetização digital e as habilidades de uso;</li>
+      <li>a finalidade e a intensidade do uso;</li>
+      <li>a desigualdade de acesso dentro de cada país, por renda, escolaridade ou território;</li>
+      <li>a diferença entre áreas urbanas e rurais.</li>
+    </ul>
+    <p>
+      Duas consequências são relevantes. Primeiro, países com percentuais semelhantes podem
+      apresentar experiências digitais muito distintas. Segundo, a média nacional oculta
+      desigualdades internas: um país pode ter 84% de cobertura e, ainda assim, concentrar a
+      população não conectada em grupos específicos, para os quais a exclusão digital se soma a
+      outras privações.
+    </p>
+    <p>
+      Há também limitações de natureza metodológica. Os dados são estimativas compiladas pela ITU a
+      partir de pesquisas nacionais com desenhos amostrais e questionários distintos, sujeitas a
+      revisões. Alguns valores aparecem arredondados na fonte — a Argentina registra 34,00% em 2009 e
+      45,00% em 2010 — e descontinuidades abruptas, como o salto chileno de 15,52 pp em 2015, devem
+      ser interpretadas com cautela, pois podem refletir mudanças de mensuração. O estudo não testa
+      essas hipóteses; apenas as registra como ressalva.
+    </p>
+    <p>
+      Por fim, a pesquisa é descritiva e não permite inferência causal. Não se estima, por exemplo,
+      o efeito do acesso à Internet sobre o crescimento econômico, sobre a produtividade ou sobre a
+      renda. Tampouco se controlam variáveis como PIB per capita, escolaridade média, investimento em
+      infraestrutura ou regulação setorial. Estudos explicativos exigiriam modelos com controles
+      adicionais e, preferencialmente, dados em nível individual ou subnacional.
+    </p>
+    <p>
+      Reconhecer essas limitações não invalida os resultados. Elas delimitam o alcance das conclusões:
+      o estudo descreve, com precisão verificável, a evolução de uma medida de cobertura em quatro
+      países e dela extrai implicações administrativas compatíveis com esse escopo.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">19</span>
+  </div>
+</section>
+
+<!-- ===================================================== 20. CONCLUSÃO -->
+<section class="page" data-page="20" id="pagina-20">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>8 Conclusão</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="s8"><span class="numero">8</span>CONCLUSÃO</h2>
+
+    <p>
+      A pesquisa mostrou que, entre 2000 e 2024, o acesso à Internet deixou de ser um fenômeno
+      restrito a minorias e se tornou atributo da maior parte da população nos quatro países
+      analisados. O Brasil passou de 2,87% para 84,46% da população usando Internet, avanço de 81,59
+      pontos percentuais. A Argentina cresceu de 7,04% para 89,67% (+82,63 pp), o Uruguai de 10,54%
+      para 91,99% (+81,45 pp) e o Chile de 16,60% para 95,59% (+78,99 pp).
+    </p>
+    <p>
+      A despeito da magnitude comum, as trajetórias não foram idênticas. O Chile manteve a liderança
+      em 19 dos 25 anos; o Uruguai liderou entre 2008 e 2010; a Argentina, entre 2012 e 2014; o Brasil
+      não ocupou a primeira posição em nenhum ano. Em 2024, o Brasil permaneceu 7,95 pp abaixo da
+      média dos três países e registrou a menor média do período (47,39%). A amplitude entre o maior
+      e o menor percentual, que chegou a 22,69 pp em 2016, encerrou o período em 11,13 pp.
+    </p>
+    <p>
+      O ritmo de crescimento também se alterou. O Brasil avançou 4,04 pp por ano entre 2000 e 2009,
+      3,70 pp entre 2010 e 2019 e apenas 0,78 pp entre 2020 e 2024. A desaceleração é comum aos quatro
+      países, mas é mais acentuada no caso brasileiro. Esse é, provavelmente, o achado com maior
+      consequência prática: o país parte de um patamar inferior e cresce, no período recente, mais
+      devagar que os vizinhos.
+    </p>
+    <p>
+      Para a Administração, a conclusão central é que a variável crítica mudou de natureza. Enquanto
+      a cobertura crescia em ritmo acelerado, o desafio era alcançar novos usuários; com a
+      desaceleração, o desafio passa a ser qualificar o uso, integrar canais, elevar a produtividade
+      e atender com equidade a parcela da população que ainda não está plenamente incluída. Decisões
+      de investimento em plataformas digitais, de desenho de canais e de segmentação de mercado
+      devem incorporar essa mudança de regime.
+    </p>
+    <p>
+      Do ponto de vista metodológico, o trabalho demonstrou que é possível construir um diagnóstico
+      comparativo consistente com dados públicos, sem custo de coleta primária e com rastreabilidade
+      completa: a fonte é oficial, a extração é reprodutível por script, o tratamento preserva as
+      ausências e os cálculos são verificáveis. O encadeamento adotado — API, tratamento, indicadores,
+      visualização e interpretação — é o mesmo de um projeto de Business Intelligence, o que reforça
+      a utilidade do exercício como aplicação dos conceitos estudados na disciplina.
+    </p>
+    <p>
+      Como continuidade, sugere-se incorporar indicadores de qualidade de conexão, custo e
+      habilidades digitais; desagregar os dados por renda e território; e ampliar a comparação para
+      outros países da região. Essas extensões permitiriam testar hipóteses que o presente estudo,
+      por sua natureza descritiva, apenas delimita.
+    </p>
+
+    <div class="assinatura-secao">
+      Relatório elaborado a partir de <span data-observacoes>135</span> observações coletadas em
+      <span data-coleta>—</span>.
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">20</span>
+  </div>
+</section>
+
+<!-- =================================================== 21. REFERÊNCIAS -->
+<section class="page" data-page="21" id="pagina-21">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>Referências</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="refs">REFERÊNCIAS</h2>
+
+    <ul class="referencias">
+      <li>
+        INTERNATIONAL TELECOMMUNICATION UNION. <strong>World Telecommunication/ICT Indicators
+        Database</strong>. Genebra: ITU, 2025. Disponível em:
+        <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/publications/wtid.aspx">https://www.itu.int/en/ITU-D/Statistics/Pages/publications/wtid.aspx</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        INTERNATIONAL TELECOMMUNICATION UNION. <strong>Measuring digital development: Facts and
+        Figures</strong>. Genebra: ITU, 2025. Disponível em:
+        <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx">https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        LAUDON, K. C.; LAUDON, J. P. <strong>Management Information Systems: Managing the Digital
+        Firm</strong>. 16. ed. Harlow: Pearson, 2020.
+      </li>
+      <li>
+        NÚCLEO DE INFORMAÇÃO E COORDENAÇÃO DO PONTO BR. <strong>TIC Domicílios</strong>. São Paulo:
+        Cetic.br/NIC.br, 2025. Disponível em:
+        <a href="https://cetic.br/pt/pesquisa/domicilios/">https://cetic.br/pt/pesquisa/domicilios/</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        WORLD BANK. <strong>World Development Indicators</strong> [base de dados]. Washington, DC:
+        World Bank, 2026. Disponível em:
+        <a href="https://databank.worldbank.org/source/world-development-indicators">https://databank.worldbank.org/source/world-development-indicators</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        WORLD BANK. <strong>Individuals using the Internet (% of population) — IT.NET.USER.ZS</strong>.
+        Washington, DC: World Bank, 2026. Disponível em:
+        <a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS">https://data.worldbank.org/indicator/IT.NET.USER.ZS</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        WORLD BANK. <strong>World Bank Open Data — API v2: developer documentation</strong>.
+        Washington, DC: World Bank, 2026. Disponível em:
+        <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392">https://datahelpdesk.worldbank.org/knowledgebase/articles/889392</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+    </ul>
+
+    <div class="nota" style="margin-top:8mm">
+      <span class="nota-titulo">Nota sobre as referências</span>
+      <p>
+        As referências institucionais correspondem às fontes efetivamente consultadas para a obtenção
+        dos dados e para a definição metodológica do indicador. Os endereços eletrônicos foram
+        verificados na data de acesso indicada. Não foram incluídas obras cuja existência ou edição
+        não pudesse ser confirmada.
+      </p>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">21</span>
+  </div>
+</section>
+
+<!-- ====================================================== 22. ANEXO A -->
+<section class="page" data-page="22" id="pagina-22">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>Anexo A</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="anexo-a">ANEXO A — SÉRIE ANUAL COMPLETA</h2>
+
+    <div class="tabela-bloco">
+      <div class="tabela-titulo">Tabela A1 — Indivíduos que usam a Internet (% da população), por país e ano — 2000–2024</div>
+      <table style="font-size:7.6pt">
+        <thead>
+          <tr><th>Ano</th><th>Brasil</th><th>Argentina</th><th>Chile</th><th>Uruguai</th><th>Média ARG/CHL/URY</th><th>Brasil − média</th></tr>
+        </thead>
+        <tbody id="tab-anual"></tbody>
+      </table>
+      <div class="fonte-tabela">
+        Fonte: Banco Mundial, World Development Indicators (IT.NET.USER.ZS), coletado em
+        <span data-coleta>—</span>. Média e diferença calculadas pelo autor. Valores arredondados para
+        duas casas decimais na apresentação; a base preserva a precisão original.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">22</span>
+  </div>
+</section>
+
+<!-- ====================================================== 23. ANEXO B -->
+<section class="page" data-page="23" id="pagina-23">
+  <div class="page-cabecalho">
+    <span class="cap-esq">Inclusão digital na América do Sul</span>
+    <span>Anexo B</span>
+  </div>
+
+  <div class="page-conteudo">
+    <h2 class="secao" data-destino="anexo-b">ANEXO B — SÉRIE HISTÓRICA 1990–2024</h2>
+
+    <p>
+      O gráfico a seguir reproduz a série completa disponibilizada pela API, incluindo os anos
+      anteriores ao período de análise. As interrupções nas linhas correspondem a anos sem
+      observação, preservados como ausência: a Argentina e o Chile não possuem registro em 1991, e o
+      Uruguai não possui registros em 1991, 1992 e 1993. Não houve interpolação, de modo que nenhum
+      trecho do gráfico representa valor estimado pelo autor.
+    </p>
+
+    <div class="figura" style="margin-top:4mm">
+      <div class="figura-titulo">Gráfico 4 — Série histórica completa do uso da Internet (1990–2024)</div>
+      <div class="figura-sub">Indivíduos que usam a Internet (% da população) · lacunas preservadas</div>
+      <div class="figura-svg" id="graf-4"></div>
+      <div class="figura-fonte">Fonte: Banco Mundial (WDI). Elaboração própria.</div>
+    </div>
+
+    <p>
+      Até 1999, os valores permanecem baixos nos quatro países, com as primeiras observações
+      registrando percentuais próximos de zero. A expansão visível a partir de 2000 coincide com o
+      período adotado como recorte principal desta pesquisa — decisão que também evita comparações
+      sobre bases iniciais excessivamente pequenas, nas quais pequenas variações absolutas produzem
+      variações relativas desproporcionais.
+    </p>
+  </div>
+
+  <div class="page-rodape">
+    <span>Elaboração própria com dados do Banco Mundial (WDI)</span>
+    <span class="folio">23</span>
+  </div>
+</section>
+
+<script>
+window.INTERNET_USERS_DATA = {"projeto":"Inclusão Digital: uma análise comparativa da evolução do acesso à Internet no Brasil e em países da América do Sul","disciplina":"Tecnologia da Informação e Comunicação Aplicada à Administração","gerado_por":"scripts/fetch_data.py (Python 3.12.10)","fonte":{"instituicao":"Banco Mundial (World Bank)","dataset":"World Development Indicators (WDI)","dataset_id":"2","indicador_codigo":"IT.NET.USER.ZS","indicador_nome":"Individuals using the Internet (% of population)","indicador_nome_pt":"Indivíduos que usam a Internet (% da população)","definicao":"Percentual de indivíduos que usaram a Internet nos últimos três meses, em relação à população total.","unidade":"% da população","fonte_primaria":"International Telecommunication Union (ITU) — World Telecommunication/ICT Indicators Database","url_indicador":"https://data.worldbank.org/indicator/IT.NET.USER.ZS","url_api_pais":"https://api.worldbank.org/v2/country/{pais}/indicator/IT.NET.USER.ZS?format=json&per_page=100","url_api_multipais":"https://api.worldbank.org/v2/country/BRA;ARG;CHL;URY/indicator/IT.NET.USER.ZS?format=json&per_page=20000","api_atualizada_em":"2026-11-11","nota_coleta":"A consulta multi-país em um único endpoint é bloqueada pelo WAF do Banco Mundial a partir de parte dos ambientes (HTTP 502). Foram executadas consultas equivalentes, uma por país, no mesmo endpoint oficial, com consolidação posterior."},"coleta":{"data_utc":"2026-11-17T18:00:43Z","data_local":"2026-11-17 15:00","metodologia_api":"JSON stateless, paginação verificada (pages = 1, per_page = 100)","observacao":"Valores preservados como retornados pela API. Anos sem informação não constam da base (ausentes, não zeros)."},"paises":[{"codigo":"BRA","nome":"Brasil","nome_en":"Brazil","cor":"#1B4F9C","cor_nome":"Azul"},{"codigo":"ARG","nome":"Argentina","nome_en":"Argentina","cor":"#C2185B","cor_nome":"Rosa"},{"codigo":"CHL","nome":"Chile","nome_en":"Chile","cor":"#1E7A45","cor_nome":"Verde"},{"codigo":"URY","nome":"Uruguai","nome_en":"Uruguay","cor":"#111418","cor_nome":"Preto"}],"periodo":{"serie_completa":{"inicio":1990,"fim":2024},"analise":{"inicio":2000,"fim":2024,"criterio":"Período comum aos quatro países, iniciado em 2000, sem lacunas em nenhuma série."},"anos_comuns":[1990,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"anos_analise":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],"lacunas_na_analise":[]},"verificacao":{"ultimo_ano_por_pais":{"BRA":2024,"ARG":2024,"CHL":2024,"URY":2024},"por_pais":{"BRA":{"primeiro_ano":1990,"ultimo_ano":2024,"total_observacoes":35,"anos_ausentes":[]},"ARG":{"primeiro_ano":1990,"ultimo_ano":2024,"total_observacoes":34,"anos_ausentes":[1991]},"CHL":{"primeiro_ano":1990,"ultimo_ano":2024,"total_observacoes":34,"anos_ausentes":[1991]},"URY":{"primeiro_ano":1990,"ultimo_ano":2024,"total_observacoes":32,"anos_ausentes":[1991,1992,1993]}},"api":{"BRA":{"total_registros":66,"paginas":1,"pagina_lida":1,"requisicoes":1,"status_http":200},"ARG":{"total_registros":66,"paginas":1,"pagina_lida":1,"requisicoes":1,"status_http":200},"CHL":{"total_registros":66,"paginas":1,"pagina_lida":1,"requisicoes":1,"status_http":200},"URY":{"total_registros":66,"paginas":1,"pagina_lida":1,"requisicoes":1,"status_http":200}}},"series":[{"codigo":"BRA","nome":"Brasil","nome_en":"Brazil","cor":"#1B4F9C","cor_nome":"Azul","primeiro_ano":1990,"ultimo_ano_disponivel":2024,"total_observacoes":35,"dados":[{"ano":1990,"valor":0.0},{"ano":1991,"valor":0.00329},{"ano":1992,"valor":0.0129},{"ano":1993,"valor":0.0255},{"ano":1994,"valor":0.0377},{"ano":1995,"valor":0.105},{"ano":1996,"valor":0.451},{"ano":1997,"valor":0.786},{"ano":1998,"valor":1.48},{"ano":1999,"valor":2.04},{"ano":2000,"valor":2.87068515854108},{"ano":2001,"valor":4.52849486902851},{"ano":2002,"valor":9.14942508560748},{"ano":2003,"valor":13.2075861035303},{"ano":2004,"valor":19.073672274442},{"ano":2005,"valor":21.022747248827},{"ano":2006,"valor":28.17840004},{"ano":2007,"valor":30.87999916},{"ano":2008,"valor":33.83},{"ano":2009,"valor":39.22},{"ano":2010,"valor":40.65},{"ano":2011,"valor":45.69},{"ano":2012,"valor":48.56},{"ano":2013,"valor":51.04},{"ano":2014,"valor":54.5510018796392},{"ano":2015,"valor":58.3279517340924},{"ano":2016,"valor":60.8725400681261},{"ano":2017,"valor":67.4712845236305},{"ano":2018,"valor":70.4342825404361},{"ano":2019,"valor":73.9124399133589},{"ano":2020,"valor":81.34269353},{"ano":2021,"valor":80.68989314},{"ano":2022,"valor":80.52775094},{"ano":2023,"valor":84.15060238},{"ano":2024,"valor":84.46347227}]},{"codigo":"ARG","nome":"Argentina","nome_en":"Argentina","cor":"#C2185B","cor_nome":"Rosa","primeiro_ano":1990,"ultimo_ano_disponivel":2024,"total_observacoes":34,"dados":[{"ano":1990,"valor":0.0},{"ano":1992,"valor":0.00299},{"ano":1993,"valor":0.0295},{"ano":1994,"valor":0.0437},{"ano":1995,"valor":0.0863},{"ano":1996,"valor":0.142},{"ano":1997,"valor":0.28},{"ano":1998,"valor":0.831},{"ano":1999,"valor":3.28},{"ano":2000,"valor":7.0386830862178},{"ano":2001,"valor":9.78080728532407},{"ano":2002,"valor":10.8821243775325},{"ano":2003,"valor":11.9136965509954},{"ano":2004,"valor":16.0366841054923},{"ano":2005,"valor":17.7205833696065},{"ano":2006,"valor":20.9272021035896},{"ano":2007,"valor":25.9466329403819},{"ano":2008,"valor":28.1126234799907},{"ano":2009,"valor":34.0},{"ano":2010,"valor":45.0},{"ano":2011,"valor":51.0},{"ano":2012,"valor":55.79999924},{"ano":2013,"valor":59.90000153},{"ano":2014,"valor":64.69999695},{"ano":2015,"valor":68.0430641088122},{"ano":2016,"valor":70.9689808206024},{"ano":2017,"valor":74.2949068657957},{"ano":2018,"valor":77.7},{"ano":2019,"valor":79.9469520347551},{"ano":2020,"valor":85.51438646},{"ano":2021,"valor":87.15070683},{"ano":2022,"valor":88.37535691},{"ano":2023,"valor":89.22897166},{"ano":2024,"valor":89.66715228}]},{"codigo":"CHL","nome":"Chile","nome_en":"Chile","cor":"#1E7A45","cor_nome":"Verde","primeiro_ano":1990,"ultimo_ano_disponivel":2024,"total_observacoes":34,"dados":[{"ano":1990,"valor":0.0},{"ano":1992,"valor":0.0365},{"ano":1993,"valor":0.0718},{"ano":1994,"valor":0.141},{"ano":1995,"valor":0.347},{"ano":1996,"valor":0.683},{"ano":1997,"valor":1.06},{"ano":1998,"valor":1.66},{"ano":1999,"valor":4.1},{"ano":2000,"valor":16.6},{"ano":2001,"valor":19.1},{"ano":2002,"valor":22.1},{"ano":2003,"valor":25.4737788864723},{"ano":2004,"valor":28.1779101232438},{"ano":2005,"valor":31.1753006},{"ano":2006,"valor":34.4977511736017},{"ano":2007,"valor":35.90000153},{"ano":2008,"valor":37.29999924},{"ano":2009,"valor":41.56},{"ano":2010,"valor":45.0},{"ano":2011,"valor":52.2496072877744},{"ano":2012,"valor":55.04999924},{"ano":2013,"valor":58.0},{"ano":2014,"valor":61.11000061},{"ano":2015,"valor":76.6295919508796},{"ano":2016,"valor":83.5585860244169},{"ano":2017,"valor":82.3274869338464},{"ano":2018,"valor":84.90000153},{"ano":2019,"valor":85.01760101},{"ano":2020,"valor":87.45929718},{"ano":2021,"valor":90.23280334},{"ano":2022,"valor":92.31819916},{"ano":2023,"valor":94.45742345},{"ano":2024,"valor":95.590243}]},{"codigo":"URY","nome":"Uruguai","nome_en":"Uruguay","cor":"#111418","cor_nome":"Preto","primeiro_ano":1990,"ultimo_ano_disponivel":2024,"total_observacoes":32,"dados":[{"ano":1990,"valor":0.0},{"ano":1994,"valor":0.0625},{"ano":1995,"valor":0.31},{"ano":1996,"valor":1.85},{"ano":1997,"valor":3.36},{"ano":1998,"valor":6.99},{"ano":1999,"valor":9.97},{"ano":2000,"valor":10.5390577480141},{"ano":2001,"valor":11.1214376832783},{"ano":2002,"valor":11.4194701966853},{"ano":2003,"valor":15.9371367159756},{"ano":2004,"valor":17.0630983403661},{"ano":2005,"valor":20.0881895579305},{"ano":2006,"valor":29.39999962},{"ano":2007,"valor":34.0},{"ano":2008,"valor":39.3},{"ano":2009,"valor":41.8},{"ano":2010,"valor":46.4},{"ano":2011,"valor":51.4046610563616},{"ano":2012,"valor":54.453768680746},{"ano":2013,"valor":57.69},{"ano":2014,"valor":61.4624951684405},{"ano":2015,"valor":64.5707870971624},{"ano":2016,"valor":66.40000153},{"ano":2017,"valor":70.3223543994698},{"ano":2018,"valor":80.7268428795854},{"ano":2019,"valor":83.3515337667548},{"ano":2020,"valor":85.47100067},{"ano":2021,"valor":87.64440155},{"ano":2022,"valor":89.87304314},{"ano":2023,"valor":90.92590332},{"ano":2024,"valor":91.99109007}]}]};
+</script>
+<script>
+/*
+ * analytics.js — Cálculos reprodutíveis do projeto "Inclusão Digital na América do Sul".
+ *
+ * Todas as métricas apresentadas no dashboard e no relatório são derivadas exclusivamente da
+ * base coletada em data/internet_users.json. Nenhum valor é digitado manualmente.
+ *
+ * Convenções:
+ *  - "pp"  = ponto percentual  -> diferença aritmética entre dois percentuais.
+ *  - "variação relativa (%)"   -> (final - inicial) / inicial * 100.
+ *  - Células sem observação permanecem null; nunca são tratadas como zero.
+ */
+(function (global) {
+  "use strict";
+
+  var PAISES = ["BRA", "ARG", "CHL", "URY"];
+  var ESTRANGEIROS = ["ARG", "CHL", "URY"];
+
+  function arred(x, casas) {
+    if (x === null || x === undefined || isNaN(x)) return null;
+    var f = Math.pow(10, casas === undefined ? 2 : casas);
+    return Math.round((x + Number.EPSILON) * f) / f;
+  }
+
+  function media(arr) {
+    var v = arr.filter(function (x) { return x !== null && x !== undefined && !isNaN(x); });
+    if (!v.length) return null;
+    return v.reduce(function (a, b) { return a + b; }, 0) / v.length;
+  }
+
+  function indexar(serie) {
+    var map = {};
+    serie.dados.forEach(function (d) { map[d.ano] = d.valor; });
+    return map;
+  }
+
+  function Analytics(dataset) {
+    this.ds = dataset;
+    this.anos = dataset.periodo.anos_analise.slice();
+    this.indice = {};
+    var self = this;
+    dataset.series.forEach(function (s) { self.indice[s.codigo] = indexar(s); });
+  }
+
+  Analytics.prototype.info = function (codigo) {
+    return this.ds.series.filter(function (s) { return s.codigo === codigo; })[0];
+  };
+
+  /** Valor observado de um país em um ano (null se ausente). */
+  Analytics.prototype.valor = function (codigo, ano) {
+    var m = this.indice[codigo];
+    if (!m || !(ano in m)) return null;
+    return m[ano];
+  };
+
+  /** Série alinhada ao eixo de anos informado; anos sem observação ficam null. */
+  Analytics.prototype.serie = function (codigo, anos) {
+    var self = this;
+    return (anos || this.anos).map(function (a) { return self.valor(codigo, a); });
+  };
+
+  /** Média aritmética anual de Argentina, Chile e Uruguai. */
+  Analytics.prototype.mediaEstrangeiros = function (anos) {
+    var self = this;
+    return (anos || this.anos).map(function (a) {
+      return media(ESTRANGEIROS.map(function (c) { return self.valor(c, a); }));
+    });
+  };
+
+  /** Diferença anual Brasil - média(ARG, CHL, URY), em pontos percentuais. */
+  Analytics.prototype.diferencaBrasilMedia = function (anos) {
+    var self = this;
+    return (anos || this.anos).map(function (a, i) {
+      var b = self.valor("BRA", a);
+      var m = self.mediaEstrangeiros()[i];
+      return (b === null || m === null) ? null : b - m;
+    });
+  };
+
+  /** Diferença anual Brasil - país, em pontos percentuais. */
+  Analytics.prototype.diferencaBrasilPais = function (codigo, anos) {
+    var self = this;
+    return (anos || this.anos).map(function (a) {
+      var b = self.valor("BRA", a);
+      var p = self.valor(codigo, a);
+      return (b === null || p === null) ? null : b - p;
+    });
+  };
+
+  /** Métricas descritivas de um país no período de análise. */
+  Analytics.prototype.metricasPais = function (codigo) {
+    var self = this;
+    var anos = this.anos;
+    var vals = this.serie(codigo);
+    var observados = vals.filter(function (v) { return v !== null; });
+    var primeiroAno = anos[vals.findIndex(function (v) { return v !== null; })];
+    var ultimoIdx = vals.length - 1 - vals.slice().reverse().findIndex(function (v) { return v !== null; });
+    var ultimoAno = anos[ultimoIdx];
+    var primeiro = vals[anos.indexOf(primeiroAno)];
+    var ultimo = vals[ultimoIdx];
+
+    var variacoes = [];
+    for (var i = 1; i < anos.length; i++) {
+      if (vals[i] !== null && vals[i - 1] !== null) {
+        variacoes.push({ ano: anos[i], delta: vals[i] - vals[i - 1] });
+      }
+    }
+    var maiorAlta = variacoes.slice().sort(function (a, b) { return b.delta - a.delta; })[0] || null;
+    var maiorQueda = variacoes.slice().sort(function (a, b) { return a.delta - b.delta; })[0] || null;
+    var quedas = variacoes.filter(function (v) { return v.delta < 0; });
+
+    return {
+      codigo: codigo,
+      nome: this.info(codigo).nome,
+      cor: this.info(codigo).cor,
+      primeiroAno: primeiroAno,
+      ultimoAno: ultimoAno,
+      primeiroValor: primeiro,
+      ultimoValor: ultimo,
+      deltaPP: (primeiro !== null && ultimo !== null) ? ultimo - primeiro : null,
+      variacaoRelativa: (primeiro && primeiro !== 0) ? ((ultimo - primeiro) / primeiro) * 100 : null,
+      media: media(observados),
+      minimo: observados.length ? Math.min.apply(null, observados) : null,
+      maximo: observados.length ? Math.max.apply(null, observados) : null,
+      variacoes: variacoes,
+      maiorAlta: maiorAlta,
+      maiorQueda: maiorQueda,
+      anosDeQueda: quedas.map(function (q) { return q.ano; }),
+      nObservacoes: observados.length,
+      serie: vals
+    };
+  };
+
+  /** Análise por subperíodo (variação total em pp e média anual em pp/ano). */
+  Analytics.prototype.subperiodos = function (faixas) {
+    var self = this;
+    var out = [];
+    (faixas || [[2000, 2009], [2010, 2019], [2020, 2024]]).forEach(function (f) {
+      var linha = { inicio: f[0], fim: f[1], anos: f[1] - f[0] };
+      PAISES.forEach(function (c) {
+        var a = self.valor(c, f[0]), b = self.valor(c, f[1]);
+        linha[c] = (a === null || b === null) ? null : {
+          deltaPP: b - a,
+          porAno: (b - a) / (f[1] - f[0]),
+          inicio: a,
+          fim: b
+        };
+      });
+      out.push(linha);
+    });
+    return out;
+  };
+
+  /** País líder (maior percentual) em cada ano, e contagem de liderança. */
+  Analytics.prototype.lideranca = function () {
+    var self = this;
+    var porAno = [];
+    var contagem = {};
+    PAISES.forEach(function (c) { contagem[c] = 0; });
+    this.anos.forEach(function (a) {
+      var melhor = null;
+      PAISES.forEach(function (c) {
+        var v = self.valor(c, a);
+        if (v !== null && (melhor === null || v > melhor.valor)) melhor = { codigo: c, valor: v };
+      });
+      if (melhor) { contagem[melhor.codigo]++; melhor.ano = a; porAno.push(melhor); }
+    });
+    return { porAno: porAno, contagem: contagem };
+  };
+
+  /** Amplitude (maior - menor) entre os quatro países em cada ano, em pp. */
+  Analytics.prototype.amplitude = function () {
+    var self = this;
+    return this.anos.map(function (a) {
+      var vals = PAISES.map(function (c) { return self.valor(c, a); }).filter(function (v) { return v !== null; });
+      return vals.length > 1 ? Math.max.apply(null, vals) - Math.min.apply(null, vals) : null;
+    });
+  };
+
+  /** Cálculo da média Brasil vs estrangeiros no último ano do período. */
+  Analytics.prototype.comparativoFinal = function () {
+    var self = this;
+    var ano = this.anos[this.anos.length - 1];
+    var b = this.valor("BRA", ano);
+    var med = media(ESTRANGEIROS.map(function (c) { return self.valor(c, ano); }));
+    return { ano: ano, brasil: b, mediaEstrangeiros: med, diferencaPP: b - med };
+  };
+
+  /** Auditoria: confere integridade da base (duplicidades, lacunas, ordem). */
+  Analytics.prototype.auditar = function () {
+    var self = this;
+    var problemas = [];
+    this.ds.series.forEach(function (s) {
+      var vistos = {};
+      s.dados.forEach(function (d) {
+        if (vistos[d.ano]) problemas.push("Ano duplicado em " + s.codigo + ": " + d.ano);
+        vistos[d.ano] = true;
+        if (d.valor === null || d.valor === undefined) problemas.push("Valor nulo em " + s.codigo + " " + d.ano);
+        if (typeof d.valor === "number" && (d.valor < 0 || d.valor > 100)) {
+          problemas.push("Valor fora de 0-100 em " + s.codigo + " " + d.ano + ": " + d.valor);
+        }
+      });
+      var ordem = s.dados.map(function (d) { return d.ano; });
+      for (var i = 1; i < ordem.length; i++) {
+        if (ordem[i] <= ordem[i - 1]) problemas.push("Série fora de ordem em " + s.codigo + ": " + ordem[i]);
+      }
+    });
+    this.anos.forEach(function (a) {
+      PAISES.forEach(function (c) {
+        if (self.valor(c, a) === null) problemas.push("Lacuna no período de análise: " + c + " " + a);
+      });
+    });
+    return {
+      ok: problemas.length === 0,
+      problemas: problemas,
+      anosAnalise: this.anos.length,
+      paises: PAISES.length,
+      observacoes: this.ds.series.reduce(function (acc, s) { return acc + s.dados.length; }, 0)
+    };
+  };
+
+  Analytics.arred = arred;
+  Analytics.media = media;
+  Analytics.PAISES = PAISES;
+  Analytics.ESTRANGEIROS = ESTRANGEIROS;
+
+  if (typeof module !== "undefined" && module.exports) module.exports = Analytics;
+  global.Analytics = Analytics;
+})(typeof window !== "undefined" ? window : global);
+
+</script>
+<script>
+/*
+ * svg-chart.js — renderizador de gráficos de linhas em SVG, otimizado para impressão.
+ *
+ * Gera gráficos vetoriais (nítidos em qualquer resolução de PDF), com:
+ *   - fundo branco, grade horizontal discreta e sem grade vertical;
+ *   - marcadores circulares com contorno branco;
+ *   - legenda centralizada abaixo da área de plotagem;
+ *   - eixos com percentuais/valores explícitos;
+ *   - descontinuidade visual nos anos sem observação (spanGaps desativado).
+ *
+ * API:
+ *   SVGChart.linhas(container, {
+ *     largura, altura, anos, series: [{nome, cor, valores, tracejado}],
+ *     yMin, yMax, yPasso, sufixo, casas, zero
+ *   })
+ */
+(function (global) {
+  "use strict";
+
+  var NS = "http://www.w3.org/2000/svg";
+
+  function el(nome, attrs, texto) {
+    var n = document.createElementNS(NS, nome);
+    if (attrs) Object.keys(attrs).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    if (texto !== undefined && texto !== null) n.textContent = texto;
+    return n;
+  }
+
+  function fmt(v, casas) {
+    return new Intl.NumberFormat("pt-BR", {
+      minimumFractionDigits: casas === undefined ? 0 : casas,
+      maximumFractionDigits: casas === undefined ? 0 : casas
+    }).format(v);
+  }
+
+  function linhas(container, cfg) {
+    var W = cfg.largura || 900;
+    var H = cfg.altura || 430;
+    var sufixo = cfg.sufixo || "";
+    var casas = cfg.casas === undefined ? 0 : cfg.casas;
+    var anos = cfg.anos;
+
+    var margem = { topo: 18, direita: 22, base: 74, esquerda: 62 };
+    var x0 = margem.esquerda, x1 = W - margem.direita;
+    var y0 = margem.topo, y1 = H - margem.base;
+
+    var yMin = cfg.yMin, yMax = cfg.yMax;
+    var escalaY = function (v) { return y1 - ((v - yMin) / (yMax - yMin)) * (y1 - y0); };
+    var escalaX = function (i) {
+      return anos.length === 1 ? (x0 + x1) / 2 : x0 + (i * (x1 - x0)) / (anos.length - 1);
+    };
+
+    container.innerHTML = "";
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H,
+      width: "100%",
+      role: "img",
+      "aria-label": cfg.rotulo || "Gráfico de linhas",
+      preserveAspectRatio: "xMidYMid meet"
+    });
+    svg.style.width = "100%";
+    svg.style.height = "auto";
+    svg.style.aspectRatio = W + " / " + H;
+    svg.appendChild(el("title", null, cfg.rotulo || "Gráfico de linhas"));
+
+    // fundo
+    svg.appendChild(el("rect", { x: 0, y: 0, width: W, height: H, fill: "#FFFFFF" }));
+
+    // grade horizontal
+    var passo = cfg.yPasso || ((yMax - yMin) / 5);
+    for (var v = yMin; v <= yMax + 1e-9; v += passo) {
+      var yy = escalaY(v);
+      svg.appendChild(el("line", {
+        x1: x0, x2: x1, y1: yy.toFixed(2), y2: yy.toFixed(2),
+        stroke: "#E9EDF2", "stroke-width": 1
+      }));
+      svg.appendChild(el("text", {
+        x: x0 - 10, y: (yy + 5).toFixed(2), "text-anchor": "end",
+        "font-family": "'Segoe UI', system-ui, sans-serif", "font-size": 15, fill: "#5B6672"
+      }, fmt(v, casas) + sufixo));
+    }
+
+    // linha de zero (gráficos de diferença)
+    if (cfg.zero && yMin < 0 && yMax > 0) {
+      svg.appendChild(el("line", {
+        x1: x0, x2: x1, y1: escalaY(0), y2: escalaY(0), stroke: "#AEB8C6", "stroke-width": 1.2
+      }));
+    }
+
+    // eixo X
+    svg.appendChild(el("line", {
+      x1: x0, x2: x1, y1: y1, y2: y1, stroke: "#CBD4E0", "stroke-width": 1
+    }));
+
+    // rótulos do eixo X
+    var pulo = cfg.puloAnos || 1;
+    anos.forEach(function (ano, i) {
+      if (i % pulo !== 0 && i !== anos.length - 1) return;
+      svg.appendChild(el("text", {
+        x: escalaX(i).toFixed(2), y: y1 + 24, "text-anchor": "middle",
+        "font-family": "'Segoe UI', system-ui, sans-serif", "font-size": 15, fill: "#5B6672"
+      }, String(ano)));
+    });
+
+    // séries
+    cfg.series.forEach(function (s) {
+      var segmento = [];
+      var segmentos = [];
+      s.valores.forEach(function (val, i) {
+        if (val === null || val === undefined || isNaN(val)) {
+          if (segmento.length) { segmentos.push(segmento); segmento = []; }
+        } else {
+          segmento.push([escalaX(i), escalaY(val)]);
+        }
+      });
+      if (segmento.length) segmentos.push(segmento);
+
+      segmentos.forEach(function (seg) {
+        if (seg.length < 2) return;
+        var d = seg.map(function (p, k) {
+          return (k === 0 ? "M" : "L") + p[0].toFixed(2) + " " + p[1].toFixed(2);
+        }).join(" ");
+        var linha = el("path", {
+          d: d, fill: "none", stroke: s.cor, "stroke-width": 2.6,
+          "stroke-linejoin": "round", "stroke-linecap": "round"
+        });
+        if (s.tracejado) linha.setAttribute("stroke-dasharray", "7 5");
+        svg.appendChild(linha);
+      });
+
+      // marcadores
+      s.valores.forEach(function (val, i) {
+        if (val === null || val === undefined || isNaN(val)) return;
+        svg.appendChild(el("circle", {
+          cx: escalaX(i).toFixed(2), cy: escalaY(val).toFixed(2), r: 4.4,
+          fill: s.cor, stroke: "#FFFFFF", "stroke-width": 1.9
+        }));
+      });
+    });
+
+    // legenda centralizada abaixo do gráfico
+    var legenda = el("g", {});
+    svg.appendChild(legenda);
+    var itens = [];
+
+    // o SVG precisa estar no documento antes da medição dos textos (getBBox)
+    container.appendChild(svg);
+
+    cfg.series.forEach(function (s) {
+      var g = el("g", {});
+      var amostraX = 4, meioY = 0;
+      if (s.tracejado) {
+        g.appendChild(el("line", {
+          x1: 0, x2: 26, y1: meioY, y2: meioY, stroke: s.cor,
+          "stroke-width": 2.4, "stroke-dasharray": "7 5"
+        }));
+      }
+      g.appendChild(el("circle", {
+        cx: 13, cy: meioY, r: 4.4, fill: s.cor, stroke: "#FFFFFF", "stroke-width": 1.9
+      }));
+      var t = el("text", {
+        x: 24, y: 5, "font-family": "'Segoe UI', system-ui, sans-serif",
+        "font-size": 15.5, fill: "#24292F"
+      }, s.nome);
+      g.appendChild(t);
+      legenda.appendChild(g);
+      itens.push(g);
+    });
+
+    // medição em duas passadas
+    var larguras = itens.map(function (g) { return g.getBBox().width; });
+    var espaco = 34;
+    var total = larguras.reduce(function (a, b) { return a + b; }, 0) + espaco * (itens.length - 1);
+    var cursor = Math.max(x0, (W - total) / 2);
+    itens.forEach(function (g, i) {
+      g.setAttribute("transform", "translate(" + cursor.toFixed(2) + "," + (H - 26) + ")");
+      cursor += larguras[i] + espaco;
+    });
+
+    return svg;
+  }
+
+  global.SVGChart = { linhas: linhas, formatar: fmt };
+})(window);
+
+</script>
+<script>
+/*
+ * relatorio.js — preenche o relatório acadêmico com os dados coletados.
+ *
+ * Responsabilidades:
+ *   - gerar os quatro gráficos em SVG vetorial (impressão nítida);
+ *   - preencher as tabelas de resultados a partir da base;
+ *   - numerar sumário e rodapés de forma consistente;
+ *   - expor diagnosticarPaginas() para a auditoria de paginação.
+ */
+(function () {
+  "use strict";
+
+  var fmt2 = new Intl.NumberFormat("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  var fmt0 = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 });
+
+  function pct(v) { return v === null || v === undefined ? "—" : fmt2.format(v) + "%"; }
+  function pp(v) {
+    if (v === null || v === undefined) return "—";
+    return (v > 0 ? "+" : v < 0 ? "−" : "") + fmt2.format(Math.abs(v)) + " pp";
+  }
+  function sinalClasse(v) { return v === null ? "" : v < 0 ? "pp-neg" : "pp-pos"; }
+
+  function td(tr, texto, classe) {
+    var c = document.createElement("td");
+    c.textContent = texto;
+    if (classe) c.className = classe;
+    tr.appendChild(c);
+    return c;
+  }
+
+  function linha(tbody, rotulo, valores, opcoes) {
+    var tr = document.createElement("tr");
+    if (opcoes && opcoes.destaque) tr.className = "destaque";
+    var th = document.createElement("td");
+    th.textContent = rotulo;
+    tr.appendChild(th);
+    valores.forEach(function (v) {
+      if (typeof v === "object" && v !== null) td(tr, v.texto, v.classe);
+      else td(tr, v);
+    });
+    tbody.appendChild(tr);
+    return tr;
+  }
+
+  function iniciar(ds) {
+    var an = new Analytics(ds);
+    var anos = ds.periodo.anos_analise;
+    var ultimo = anos[anos.length - 1];
+    var aud = an.auditar();
+
+    // ---------------------------------------------------------- datas da base
+    var fmtData = new Intl.DateTimeFormat("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+    var coleta = new Date(ds.coleta.data_utc);
+    var coletaTxt = isNaN(coleta.getTime())
+      ? ds.coleta.data_utc
+      : fmtData.format(coleta) + " às " +
+        String(coleta.getUTCHours()).padStart(2, "0") + ":" +
+        String(coleta.getUTCMinutes()).padStart(2, "0") + " UTC";
+
+    document.querySelectorAll("[data-coleta]").forEach(function (n) {
+      n.textContent = coletaTxt;
+    });
+    document.querySelectorAll("[data-api-atualizada]").forEach(function (n) {
+      n.textContent = ds.fonte.api_atualizada_em;
+    });
+    document.querySelectorAll("[data-observacoes]").forEach(function (n) {
+      n.textContent = String(aud.observacoes);
+    });
+    document.querySelectorAll("[data-periodo]").forEach(function (n) {
+      n.textContent = ds.periodo.analise.inicio + "–" + ds.periodo.analise.fim;
+    });
+
+    // -------------------------------------------------------------- gráfico 1
+    SVGChart.linhas(document.getElementById("graf-1"), {
+      largura: 900, altura: 430, anos: anos, puloAnos: 2,
+      yMin: 0, yMax: 100, yPasso: 20, sufixo: "%",
+      rotulo: "Evolução do uso da Internet no Brasil, Argentina, Chile e Uruguai, 2000 a 2024",
+      series: ds.series.map(function (s) {
+        return { nome: s.nome, cor: s.cor, valores: an.serie(s.codigo, anos) };
+      })
+    });
+
+    // -------------------------------------------------------------- gráfico 2
+    SVGChart.linhas(document.getElementById("graf-2"), {
+      largura: 900, altura: 430, anos: anos, puloAnos: 2,
+      yMin: 0, yMax: 100, yPasso: 20, sufixo: "%",
+      rotulo: "Comparação entre o Brasil e a média de Argentina, Chile e Uruguai, 2000 a 2024",
+      series: [
+        { nome: "Brasil", cor: "#1B4F9C", valores: an.serie("BRA", anos) },
+        { nome: "Média de Argentina, Chile e Uruguai", cor: "#C2185B",
+          valores: an.mediaEstrangeiros(anos), tracejado: true }
+      ]
+    });
+
+    // -------------------------------------------------------------- gráfico 3
+    SVGChart.linhas(document.getElementById("graf-3"), {
+      largura: 900, altura: 430, anos: anos, puloAnos: 2,
+      yMin: -25, yMax: 10, yPasso: 5, sufixo: " pp", zero: true,
+      rotulo: "Diferença, em pontos percentuais, entre o Brasil e cada um dos três países, 2000 a 2024",
+      series: [
+        { nome: "Brasil − Argentina", cor: "#C2185B", valores: an.diferencaBrasilPais("ARG", anos) },
+        { nome: "Brasil − Chile", cor: "#1E7A45", valores: an.diferencaBrasilPais("CHL", anos) },
+        { nome: "Brasil − Uruguai", cor: "#111418", valores: an.diferencaBrasilPais("URY", anos) }
+      ]
+    });
+
+    // -------------------------------------------------------------- gráfico 4
+    var anosCompletos = [];
+    for (var a = ds.periodo.serie_completa.inicio; a <= ds.periodo.serie_completa.fim; a++) anosCompletos.push(a);
+    SVGChart.linhas(document.getElementById("graf-4"), {
+      largura: 900, altura: 430, anos: anosCompletos, puloAnos: 5,
+      yMin: 0, yMax: 100, yPasso: 20, sufixo: "%",
+      rotulo: "Série histórica completa de 1990 a 2024, com lacunas preservadas",
+      series: ds.series.map(function (s) {
+        return { nome: s.nome, cor: s.cor, valores: an.serie(s.codigo, anosCompletos) };
+      })
+    });
+
+    // -------------------------------------------------------------- tabela 2
+    var t2 = document.getElementById("tab-metricas");
+    if (t2) {
+      ds.series.forEach(function (s) {
+        var m = an.metricasPais(s.codigo);
+        linha(t2, s.nome, [
+          pct(m.primeiroValor), pct(m.ultimoValor),
+          { texto: pp(m.deltaPP), classe: "pp-pos" },
+          fmt0.format(Math.round(m.variacaoRelativa)) + "%",
+          pct(m.media)
+        ], { destaque: s.codigo === "BRA" });
+      });
+      var iniMed = Analytics.media(Analytics.ESTRANGEIROS.map(function (c) { return an.valor(c, anos[0]); }));
+      var fimMed = Analytics.media(Analytics.ESTRANGEIROS.map(function (c) { return an.valor(c, ultimo); }));
+      var medMed = Analytics.media(Analytics.ESTRANGEIROS.map(function (c) { return an.metricasPais(c).media; }));
+      linha(t2, "Média de ARG, CHL e URY", [pct(iniMed), pct(fimMed), pp(fimMed - iniMed), "—", pct(medMed)]);
+    }
+
+    // -------------------------------------------------------------- tabela 3
+    var t3 = document.getElementById("tab-diferencas");
+    if (t3) {
+      Analytics.ESTRANGEIROS.forEach(function (c) {
+        var d = an.diferencaBrasilPais(c, anos);
+        var maior = d.indexOf(Math.max.apply(null, d));
+        var menor = d.indexOf(Math.min.apply(null, d));
+        linha(t3, "Brasil − " + an.info(c).nome, [
+          pct(an.valor(c, ultimo)),
+          { texto: pp(d[d.length - 1]), classe: sinalClasse(d[d.length - 1]) },
+          { texto: pp(d[maior]) + " (" + anos[maior] + ")", classe: "pp-pos" },
+          { texto: pp(d[menor]) + " (" + anos[menor] + ")", classe: "pp-neg" }
+        ]);
+      });
+    }
+
+    // -------------------------------------------------------------- tabela 4
+    var t4 = document.getElementById("tab-subperiodos");
+    if (t4) {
+      an.subperiodos().forEach(function (bloco) {
+        var valores = Analytics.PAISES.map(function (c) {
+          var v = bloco[c].porAno;
+          return { texto: pp(v).replace(" pp", "") + " pp/ano", classe: "pp-pos" };
+        });
+        linha(t4, bloco.inicio + "–" + bloco.fim, valores);
+      });
+    }
+
+    // ------------------------------------------------- tabela 2 (anos selecionados)
+    var tsel = document.getElementById("tab-selecionados");
+    if (tsel) {
+      var difsSel = an.diferencaBrasilMedia(anos);
+      [2000, 2005, 2010, 2015, 2020, 2024].forEach(function (ano) {
+        var i = anos.indexOf(ano);
+        if (i < 0) return;
+        var tr = document.createElement("tr");
+        td(tr, String(ano));
+        Analytics.PAISES.forEach(function (c) {
+          var cel = td(tr, pct(an.valor(c, ano)));
+          cel.style.color = an.info(c).cor;
+        });
+        td(tr, pct(Analytics.media(Analytics.ESTRANGEIROS.map(function (c) { return an.valor(c, ano); }))));
+        td(tr, pp(difsSel[i]), sinalClasse(difsSel[i]));
+        tsel.appendChild(tr);
+      });
+    }
+
+    // -------------------------------------------------------------- anexo A
+    var tanexo = document.getElementById("tab-anual");    if (tanexo) {
+      var difs = an.diferencaBrasilMedia(anos);
+      anos.forEach(function (ano, i) {
+        var tr = document.createElement("tr");
+        td(tr, String(ano));
+        Analytics.PAISES.forEach(function (c) {
+          var cel = td(tr, pct(an.valor(c, ano)));
+          cel.style.color = an.info(c).cor;
+        });
+        td(tr, pct(Analytics.media(Analytics.ESTRANGEIROS.map(function (c) { return an.valor(c, ano); }))));
+        td(tr, pp(difs[i]), sinalClasse(difs[i]));
+        tanexo.appendChild(tr);
+      });
+    }
+
+    // ------------------------------------------------------- sumário e folios
+    document.querySelectorAll(".sumario-linha[data-sec]").forEach(function (linhaSum) {
+      var alvo = document.querySelector('[data-destino="' + linhaSum.dataset.sec + '"]');
+      var pag = alvo ? alvo.closest(".page") : null;
+      var destino = linhaSum.querySelector(".pagina");
+      if (destino && pag) destino.textContent = pag.dataset.page;
+      if (alvo && pag) {
+        var link = linhaSum.querySelector("a");
+        if (link) link.setAttribute("href", "#pagina-" + pag.dataset.page);
+      }
+    });
+
+    document.querySelectorAll(".page[data-page]").forEach(function (p) {
+      var folio = p.querySelector(".folio");
+      if (folio) folio.textContent = p.dataset.page;
+    });
+
+    // ------------------------------------------------------------- diagnóstico
+    window.diagnosticarPaginas = function () {
+      var sonda = document.createElement("div");
+      sonda.style.cssText = "position:absolute;width:1mm;height:1mm;left:0;top:0";
+      document.body.appendChild(sonda);
+      var pxPerMm = sonda.getBoundingClientRect().width;
+      document.body.removeChild(sonda);
+
+      return Array.from(document.querySelectorAll(".page")).map(function (p) {
+        var conteudo = p.querySelector(".page-conteudo");
+        var pr = p.getBoundingClientRect();
+        var limite = pr.bottom - 17 * pxPerMm;
+        var pior = 0;
+        if (conteudo) {
+          Array.from(conteudo.children).forEach(function (ch) {
+            var r = ch.getBoundingClientRect();
+            if (r.bottom > limite) pior = Math.max(pior, (r.bottom - limite) / pxPerMm);
+          });
+        }
+        return {
+          pagina: p.dataset.page,
+          overflowMm: +pior.toFixed(1),
+          alturaConteudoMm: conteudo ? +(conteudo.getBoundingClientRect().height / pxPerMm).toFixed(1) : 0
+        };
+      });
+    };
+
+    window.__RELATORIO_PRONTO__ = true;
+  }
+
+  function carregar() {
+    if (!window.INTERNET_USERS_DATA) {
+      document.body.insertAdjacentHTML("afterbegin",
+        '<p style="padding:20px;font-family:sans-serif;color:#8C1246">Base de dados não carregada.</p>');
+      return;
+    }
+    iniciar(window.INTERNET_USERS_DATA);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", carregar);
+  else carregar();
+})();
+
+</script>
+</body>
+</html>

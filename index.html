@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inclusão Digital na América do Sul — evolução do acesso à Internet (2000–2024)</title>
+<meta name="description" content="Análise comparativa da evolução do acesso à Internet no Brasil, Argentina, Chile e Uruguai a partir do indicador IT.NET.USER.ZS do Banco Mundial (2000–2024).">
+<meta name="author" content="Tecnologia da Informação e Comunicação Aplicada à Administração">
+<meta name="theme-color" content="#1B4F9C">
+<link rel="stylesheet" href="assets/css/estilo.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231B4F9C'/%3E%3Cpath d='M7 22 L13 15 L19 18 L25 9' stroke='white' stroke-width='2.5' fill='none'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-inner">
+    <div class="marca">Inclusão Digital · América do Sul</div>
+    <nav class="nav" aria-label="Seções do estudo">
+      <a href="#introducao">Introdução</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#dados">Dados</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#administracao">Administração</a>
+      <a href="#limitacoes">Limitações</a>
+      <a href="#referencias">Referências</a>
+    </nav>
+  </div>
+</header>
+
+<div class="capa">
+  <div class="capa-inner">
+    <span class="eyebrow">Pesquisa aplicada · Business Intelligence · Dados públicos</span>
+    <h1>Inclusão Digital: a evolução do acesso à Internet no Brasil e na América do Sul</h1>
+    <p class="subtitulo">
+      Análise comparativa da trajetória de Brasil, Argentina, Chile e Uruguai entre 2000 e 2024,
+      construída a partir do indicador oficial <em>IT.NET.USER.ZS</em> do Banco Mundial, com
+      tratamento de dados, visualização e leitura administrativa dos resultados.
+    </p>
+    <p class="disciplina">
+      <strong>Disciplina:</strong> Tecnologia da Informação e Comunicação Aplicada à Administração<br>
+      <strong>Fonte dos dados:</strong> World Bank Open Data — World Development Indicators (WDI)
+    </p>
+  </div>
+</div>
+
+<div class="kpis" aria-label="Indicadores gerais da pesquisa">
+  <div class="kpi">
+    <span class="rotulo">Países analisados</span>
+    <span class="valor">4</span>
+    <div class="nota">Brasil, Argentina, Chile e Uruguai</div>
+  </div>
+  <div class="kpi rosa">
+    <span class="rotulo">Indicador</span>
+    <span class="valor" style="font-size:1.06rem;letter-spacing:0">IT.NET.USER.ZS</span>
+    <div class="nota">Indivíduos que usam a Internet (% da população)</div>
+  </div>
+  <div class="kpi verde">
+    <span class="rotulo">Período analisado</span>
+    <span class="valor" id="periodo-analise">2000–2024</span>
+    <div class="nota">Período comum aos quatro países, sem lacunas</div>
+  </div>
+  <div class="kpi preto">
+    <span class="rotulo">Último dado disponível</span>
+    <span class="valor">2024</span>
+    <div class="nota">API atualizada em <span id="kpi-api-atualizada">2026-11-11</span></div>
+  </div>
+</div>
+
+<main>
+
+  <div class="aviso-erro" id="aviso-dados" hidden></div>
+
+  <!-- ==================================================================== 1 -->
+  <section id="introducao">
+    <span class="sec-num">Seção 1</span>
+    <h2>Introdução</h2>
+    <div class="texto-academico">
+      <p>
+        A inclusão digital designa o acesso efetivo — e não apenas potencial — das pessoas às
+        tecnologias de informação e comunicação, bem como a capacidade de usá-las para estudar,
+        trabalhar, consumir serviços públicos, acessar informação e participar da vida econômica.
+        Em sociedades nas quais atividades administrativas, financeiras, educacionais e comerciais
+        migraram para ambientes digitais, a ausência de conectividade deixa de ser uma limitação
+        técnica e passa a ser uma restrição concreta de cidadania e de mercado.
+      </p>
+      <p>
+        A difusão da Internet é, por isso, um dos indicadores mais utilizados para acompanhar a
+        transformação digital de um país. Ela se relaciona com a modernização das organizações, com
+        a produtividade, com a ampliação dos canais de relacionamento com o cliente e com a própria
+        capacidade do Estado de prestar serviços. Ainda assim, a expansão do acesso ocorre em ritmos
+        distintos entre países, o que torna a comparação internacional um instrumento útil de
+        diagnóstico e de planejamento.
+      </p>
+      <p>
+        Este painel apresenta os resultados de uma pesquisa quantitativa descritiva sobre a evolução
+        do percentual de indivíduos que utilizam a Internet no Brasil, na Argentina, no Chile e no
+        Uruguai, entre 2000 e 2024. Os dados são obtidos diretamente da API oficial do Banco Mundial,
+        tratados de forma reprodutível e apresentados em gráficos de linhas comparativos. A leitura
+        dos resultados é orientada para aplicações administrativas: planejamento estratégico,
+        transformação digital, comércio eletrônico, marketing, sistemas de informação e identificação
+        de oportunidades de negócio.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================================== 2 -->
+  <section id="objetivos">
+    <span class="sec-num">Seção 2</span>
+    <h2>Objetivos da pesquisa</h2>
+    <h3>Objetivo geral</h3>
+    <p>
+      Analisar, de forma comparativa e com base em dados públicos oficiais, a evolução do acesso à
+      Internet no Brasil, na Argentina, no Chile e no Uruguai entre 2000 e 2024, identificando
+      tendências, diferenças e implicações administrativas decorrentes desse processo.
+    </p>
+    <h3>Objetivos específicos</h3>
+    <ol>
+      <li>Coletar, por meio da API do Banco Mundial, os dados do indicador <em>IT.NET.USER.ZS</em> para os quatro países.</li>
+      <li>Verificar a consistência da série, registrar a data de coleta e identificar o período comum entre as séries.</li>
+      <li>Descrever a evolução histórica de cada país no período comum de 2000 a 2024.</li>
+      <li>Calcular a média anual dos três países estrangeiros e a diferença, em pontos percentuais, entre o Brasil e essa média.</li>
+      <li>Comparar o crescimento absoluto (pontos percentuais) e o crescimento relativo de cada país.</li>
+      <li>Construir gráficos de linhas comparativos e interpretá-los à luz da Administração.</li>
+      <li>Sistematizar aplicações práticas dos resultados para a gestão das organizações.</li>
+    </ol>
+  </section>
+
+  <!-- ==================================================================== 3 -->
+  <section id="metodologia">
+    <span class="sec-num">Seção 3</span>
+    <h2>Metodologia</h2>
+    <p>
+      A pesquisa é de natureza quantitativa, descritiva e comparativa, com dados secundários
+      obtidos em fonte oficial. A coleta foi executada por script, diretamente na API do Banco
+      Mundial, sem digitação manual de valores, de modo que todo o processo possa ser reproduzido.
+    </p>
+
+    <div class="tabela-wrap">
+      <table>
+        <caption>Tabela 1 — Delineamento metodológico da pesquisa</caption>
+        <thead>
+          <tr><th>Elemento</th><th style="text-align:left">Definição</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fonte</td><td style="text-align:left">Banco Mundial — World Development Indicators (WDI), dataset 2; indicador compilado a partir da base da União Internacional de Telecomunicações (ITU).</td></tr>
+          <tr><td>API</td><td style="text-align:left"><code>api.worldbank.org/v2/country/{país}/indicator/IT.NET.USER.ZS?format=json</code>, consultada em 17/11/2026 (API atualizada em 11/11/2026).</td></tr>
+          <tr><td>Indicador</td><td style="text-align:left">IT.NET.USER.ZS — <em>Individuals using the Internet (% of population)</em>: percentual de indivíduos que usaram a Internet nos últimos três meses.</td></tr>
+          <tr><td>Países</td><td style="text-align:left">Brasil (BRA), Argentina (ARG), Chile (CHL) e Uruguai (URY).</td></tr>
+          <tr><td>Período</td><td style="text-align:left">2000–2024 (25 anos), correspondente ao período comum aos quatro países, sem lacunas.</td></tr>
+          <tr><td>Frequência</td><td style="text-align:left">Anual.</td></tr>
+          <tr><td>Tratamento</td><td style="text-align:left">Valores preservados como retornados pela API; anos sem observação mantidos como ausentes (nunca zero); nenhuma interpolação.</td></tr>
+          <tr><td>Critério de comparação</td><td style="text-align:left">Mesmo indicador, mesmo período e mesma unidade para todos os países.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tabela-fonte">Fonte: Banco Mundial (WDI). Elaboração própria.</p>
+
+    <div class="callout" id="selo-auditoria">Verificando a integridade da base de dados…</div>
+
+    <h3>Procedimentos de coleta e verificação</h3>
+    <ul>
+      <li>Requisições HTTP em formato JSON, com verificação de paginação (uma página por país) e de código de status.</li>
+      <li>Consolidação dos quatro retornos em uma base única, ordenada por país e por ano.</li>
+      <li>Teste automatizado de integridade: anos duplicados, séries fora de ordem, valores fora do intervalo 0–100 e lacunas no período de análise.</li>
+      <li>Comparação entre duas execuções independentes da coleta (Python e PowerShell), com resultado idêntico, e conferência entre JSON, CSV e espelho JavaScript.</li>
+      <li>Recálculo independente de todas as métricas apresentadas, a partir da base, antes da redação do relatório.</li>
+    </ul>
+
+    <div class="callout neutro">
+      <p>
+        <strong>Pontos percentuais e variação relativa.</strong> Ao longo deste estudo,
+        <em>pontos percentuais (pp)</em> designam a diferença aritmética entre dois percentuais
+        (de 2,87% para 84,46% são +81,59 pp). Já a <em>variação relativa</em> expressa essa mudança
+        em relação ao valor inicial ((84,46 − 2,87) ÷ 2,87 ≈ +2.842%) e é fortemente influenciada
+        por bases iniciais pequenas. As duas medidas são apresentadas separadamente.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================================== 4 -->
+  <section id="dados">
+    <span class="sec-num">Seção 4</span>
+    <h2>Indicadores e países analisados</h2>
+    <p>
+      O indicador selecionado mede a proporção da população que utilizou a Internet em qualquer
+      dispositivo e local nos três meses anteriores à pesquisa. Trata-se de uma medida de
+      <strong>uso efetivo</strong>, e não de cobertura de infraestrutura ou de posse de equipamento,
+      o que a torna adequada para comparações internacionais, mas limitada para avaliar qualidade e
+      intensidade do uso — aspecto retomado na seção de limitações.
+    </p>
+    <ul class="tag-lista">
+      <li class="tag">Brasil (BRA)</li>
+      <li class="tag">Argentina (ARG)</li>
+      <li class="tag">Chile (CHL)</li>
+      <li class="tag">Uruguai (URY)</li>
+      <li class="tag">Série anual · 2000–2024</li>
+      <li class="tag">Unidade: % da população</li>
+    </ul>
+    <p>
+      A base consolidada contém <span id="kpi-observacoes">135</span> observações, coletadas em
+      <span id="kpi-ultima-coleta">17/11/2026</span>. Os quatro países dispõem do mesmo último ano
+      (2024), o que permite uma comparação contemporânea sem defasagens distintas entre as séries.
+      No período de 2000 a 2024 não há anos ausentes em nenhum dos países.
+    </p>
+  </section>
+
+  <!-- ==================================================================== 5 -->
+  <section id="resultados">
+    <span class="sec-num">Seção 5</span>
+    <h2>Resultados e análise dos gráficos</h2>
+
+    <div class="figura">
+      <p class="figura-titulo">Gráfico 1 — Evolução do uso da Internet na América do Sul</p>
+      <p class="figura-sub">Indivíduos que usam a Internet (% da população) · Brasil, Argentina, Chile e Uruguai · 2000–2024</p>
+      <div class="chart-box"><canvas id="grafico-1" role="img" aria-label="Gráfico de linhas com a evolução do percentual de usuários de Internet nos quatro países entre 2000 e 2024."></canvas></div>
+      <p class="figura-fonte">Fonte: Banco Mundial, World Development Indicators (indicador IT.NET.USER.ZS), API consultada em 17/11/2026. Elaboração própria.</p>
+    </div>
+
+    <div class="texto-academico">
+      <p>
+        Os quatro países partiram de patamares muito baixos em 2000 — Brasil 2,87%, Argentina 7,04%,
+        Chile 16,60% e Uruguai 10,54% — e convergiram, em 2024, para um intervalo entre 84,46% e
+        95,59%. A tendência geral é de crescimento praticamente contínuo, com formato de difusão
+        tecnológica: aceleração entre o fim dos anos 2000 e o início dos anos 2010, seguida de
+        desaceleração à medida que a cobertura se aproxima da saturação.
+      </p>
+      <p>
+        O Chile mantém a maior taxa na maior parte do período: lidera em 19 dos 25 anos analisados.
+        O Uruguai ocupa a primeira posição entre 2008 e 2010, e a Argentina entre 2012 e 2014. O
+        Brasil nunca lidera o grupo no período, embora encurte a distância até 2009 — ano em que
+        supera ligeiramente a média dos três países (+0,10 pp) — e volte a se aproximar em 2020.
+        Entre 2015 e 2016 a dispersão do grupo aumenta de forma acentuada, alcançando a maior
+        amplitude da série (22,69 pp em 2016).
+      </p>
+      <p>
+        Em 2024, a ordem é Chile (95,59%), Uruguai (91,99%), Argentina (89,67%) e Brasil (84,46%).
+        A diferença entre o maior e o menor valor é de 11,13 pp, inferior à de 2000 (13,73 pp), o
+        que indica convergência parcial: os países que partiram mais atrás cresceram, em pontos
+        percentuais, mais rapidamente que o líder inicial.
+      </p>
+    </div>
+
+    <div class="figura">
+      <p class="figura-titulo">Gráfico 2 — Brasil e média de Argentina, Chile e Uruguai</p>
+      <p class="figura-sub">Indivíduos que usam a Internet (% da população) · 2000–2024</p>
+      <div class="chart-box"><canvas id="grafico-2" role="img" aria-label="Gráfico de linhas comparando o Brasil com a média aritmética de Argentina, Chile e Uruguai."></canvas></div>
+      <p class="figura-fonte">Fonte: Banco Mundial (WDI). Média aritmética simples dos três países calculada pelo autor. Elaboração própria.</p>
+    </div>
+
+    <div class="texto-academico">
+      <p>
+        A média dos três países estrangeiros parte de 11,39% em 2000 e chega a 92,42% em 2024,
+        contra 2,87% e 84,46% do Brasil. A posição relativa brasileira melhora até 2009, quando a
+        diferença se torna praticamente nula, e volta a se deteriorar a partir de 2010. O pior
+        resultado do período ocorre em 2016, quando o Brasil fica 12,77 pp abaixo da média. Em 2020,
+        o Brasil cresce 7,43 pp em um único ano e reduz a desvantagem de 8,86 pp em 2019 para
+        4,81 pp; nos anos seguintes, a diferença volta a oscilar e termina 2024 em −7,95 pp.
+      </p>
+      <p>
+        A leitura do gráfico 2 não sustenta a conclusão de que o Brasil teria estagnado: o país
+        avançou 81,59 pp no período. O que os dados mostram é um crescimento intenso, porém
+        insuficiente para acompanhar o ritmo dos vizinhos, sobretudo a partir de 2014. Os dois
+        decréscimos anuais do Brasil ocorrem em 2021 (−0,65 pp) e 2022 (−0,16 pp), movimento não
+        observado na Argentina e no Uruguai no mesmo intervalo.
+      </p>
+    </div>
+
+    <div class="figura">
+      <p class="figura-titulo">Gráfico 3 — Diferença entre o Brasil e cada país</p>
+      <p class="figura-sub">Pontos percentuais (Brasil − país) · valores negativos indicam desvantagem brasileira · 2000–2024</p>
+      <div class="chart-box"><canvas id="grafico-3" role="img" aria-label="Gráfico de linhas com a diferença em pontos percentuais entre o Brasil e Argentina, Chile e Uruguai."></canvas></div>
+      <p class="figura-fonte">Fonte: Banco Mundial (WDI). Diferenças calculadas pelo autor. Elaboração própria.</p>
+    </div>
+
+    <div class="texto-academico">
+      <p>
+        O gráfico 3 transforma a comparação em distâncias. A série Brasil − Chile é a que apresenta
+        as maiores oscilações: começa em −13,73 pp em 2000, aproxima-se de zero no fim da década
+        (−2,34 pp em 2009) e atinge −22,69 pp em 2016, após o salto chileno de 2015. A distância em
+        relação à Argentina é a menor das três e chega a ser favorável ao Brasil entre 2003 e 2009,
+        com máximo de +7,25 pp em 2006. A série Brasil − Uruguai acompanha um padrão intermediário,
+        com pequena vantagem brasileira em 2004 (+2,01 pp) e desvantagem máxima de 10,29 pp em 2018.
+      </p>
+      <p>
+        Em 2024, as diferenças são de −5,20 pp em relação à Argentina, −7,53 pp em relação ao
+        Uruguai e −11,13 pp em relação ao Chile. A trajetória das três linhas sugere que o
+        posicionamento brasileiro é sensível a anos de crescimento excepcional dos vizinhos — como
+        o Chile em 2015 (+15,52 pp) e o Uruguai em 2018 (+10,40 pp) — mais do que a quedas
+        absolutas do próprio Brasil.
+      </p>
+    </div>
+
+    <h3>Análise comparativa</h3>
+    <div class="tabela-wrap">
+      <table>
+        <caption>Tabela 2 — Síntese das métricas por país (2000–2024)</caption>
+        <thead>
+          <tr>
+            <th>País</th><th>2000</th><th>2024</th><th>Δ pp</th><th>Δ relativa</th><th>Média do período</th>
+          </tr>
+        </thead>
+        <tbody id="tab-metricas"></tbody>
+      </table>
+    </div>
+    <p class="tabela-fonte">Fonte: Banco Mundial (WDI). Δ pp = diferença em pontos percentuais; Δ relativa = variação percentual sobre o valor inicial. Elaboração própria.</p>
+
+    <div class="texto-academico">
+      <p>
+        Em pontos percentuais, a Argentina é o país que mais cresce (+82,63 pp), seguida do Brasil
+        (+81,59 pp), do Uruguai (+81,45 pp) e do Chile (+78,99 pp). Em termos relativos, a ordem se
+        inverte: o Brasil cresce 2.842%, a Argentina 1.174%, o Uruguai 773% e o Chile 476%. Essa
+        diferença é explicada pela base inicial: o Chile já tinha 16,60% de usuários em 2000, o que
+        reduz o espaço aritmético para variações relativas elevadas. Por isso, a comparação
+        substantiva deve priorizar pontos percentuais e médias do período.
+      </p>
+      <p>
+        As médias de 2000 a 2024 confirmam a hierarquia regional: Chile 57,43%, Uruguai 52,53%,
+        Argentina 50,79% e Brasil 47,39%. O Brasil, portanto, apresenta simultaneamente o segundo
+        maior crescimento absoluto e a menor média do período, o que reflete sua posição de partida
+        mais baixa.
+      </p>
+    </div>
+
+    <div class="tabela-wrap">
+      <table>
+        <caption>Tabela 3 — Diferenças entre o Brasil e cada país (2024 e extremos do período)</caption>
+        <thead>
+          <tr><th>Comparação</th><th>País em 2024</th><th>Diferença em 2024</th><th>Diferença máxima (ano)</th><th>Diferença mínima (ano)</th></tr>
+        </thead>
+        <tbody id="tab-diferencas"></tbody>
+      </table>
+    </div>
+    <p class="tabela-fonte">Fonte: Banco Mundial (WDI). Diferenças em pontos percentuais (Brasil − país). Elaboração própria.</p>
+
+    <div class="tabela-wrap">
+      <table>
+        <caption>Tabela 4 — Ritmo de crescimento por subperíodo (pontos percentuais por ano)</caption>
+        <thead>
+          <tr><th>Subperíodo</th><th>Brasil</th><th>Argentina</th><th>Chile</th><th>Uruguai</th></tr>
+        </thead>
+        <tbody id="tab-subperiodos"></tbody>
+      </table>
+    </div>
+    <p class="tabela-fonte">Fonte: Banco Mundial (WDI). Média anual da variação em pontos percentuais, calculada entre o primeiro e o último ano de cada subperíodo. Elaboração própria.</p>
+
+    <div class="texto-academico">
+      <p>
+        A decomposição por subperíodos mostra três fases distintas. Entre 2000 e 2009, o Brasil
+        cresce 4,04 pp por ano, o ritmo mais intenso do grupo, impulsionado pela expansão da banda
+        larga e pela popularização dos telefones celulares. Entre 2010 e 2019, o Chile (4,45 pp/ano)
+        e o Uruguai (4,11 pp/ano) assumem a dianteira, enquanto o Brasil desacelera para 3,70 pp/ano.
+        Entre 2020 e 2024, todos desaceleram, como esperado em mercados próximos da saturação: o
+        Brasil avança apenas 0,78 pp/ano, contra 2,03 pp/ano do Chile.
+      </p>
+      <p>
+        Observa-se, ainda, que os períodos de crescimento mais expressivo coincidem com a difusão
+        de infraestrutura e de dispositivos — mas a série disponível não permite testar causalidade,
+        pois não inclui preço, velocidade, cobertura ou renda. Trata-se, portanto, de uma leitura
+        descritiva da trajetória, e não de uma explicação dos determinantes.
+      </p>
+    </div>
+
+    <h3>Anexo — série histórica completa (1990–2024)</h3>
+    <div class="figura">
+      <p class="figura-titulo">Gráfico 4 — Série histórica completa, com lacunas preservadas</p>
+      <p class="figura-sub">Indivíduos que usam a Internet (% da população) · 1990–2024 · intervalos sem observação não são interpolados</p>
+      <div class="chart-box alto"><canvas id="grafico-4" role="img" aria-label="Gráfico de linhas da série completa de 1990 a 2024, com interrupções nos anos sem dados."></canvas></div>
+      <p class="figura-fonte">Fonte: Banco Mundial (WDI). Argentina e Chile não possuem observação em 1991; o Uruguai não possui observações em 1991, 1992 e 1993. As linhas são interrompidas nesses anos. Elaboração própria.</p>
+    </div>
+    <p>
+      Os dados anuais só começam a ser divulgados de forma sistemática na década de 1990. As
+      observações de 1990 registram valores próximos de zero nos quatro países. Como a base é
+      preservada sem interpolação, os anos ausentes aparecem como descontinuidade visual — e não
+      como queda ou crescimento.
+    </p>
+  </section>
+
+  <!-- ==================================================================== 6 -->
+  <section id="administracao">
+    <span class="sec-num">Seção 6</span>
+    <h2>Aplicações na Administração</h2>
+    <p>
+      Os resultados têm valor administrativo porque descrevem o tamanho e a velocidade de formação
+      do mercado digital em que as organizações atuam. A seguir, relacionam-se os usos possíveis,
+      sempre com base no que os dados efetivamente permitem afirmar.
+    </p>
+
+    <h3>Planejamento estratégico</h3>
+    <p>
+      Séries históricas de adoção tecnológica ajudam a dimensionar mercados e a calibrar metas.
+      Com 84,46% da população brasileira usando Internet em 2024 e crescimento anual de apenas
+      0,78 pp entre 2020 e 2024, o espaço de expansão por novos usuários é reduzido: o crescimento
+      organizacional tende a depender mais de frequência, intensidade e valor por usuário do que da
+      entrada de novos usuários na rede.
+    </p>
+
+    <h3>Transformação digital das organizações</h3>
+    <p>
+      A comparação regional indica que a base de usuários já está consolidada nos quatro países.
+      Nesse cenário, a transformação digital deixa de ser um projeto de alcance de novos públicos e
+      passa a ser um projeto de integração de processos, dados e canais, com foco em eficiência e
+      qualidade de serviço.
+    </p>
+
+    <h3>Comércio eletrônico</h3>
+    <p>
+      A proximidade entre as taxas de uso dos quatro países sugere condições relativamente
+      homogêneas de acesso à Internet para operações de comércio eletrônico na região. As diferenças
+      remanescentes (11,13 pp entre o maior e o menor valor) recomendam estratégias de canal
+      adaptadas ao país, e não uma política única de entrada.
+    </p>
+
+    <h3>Marketing digital</h3>
+    <p>
+      A concentração do crescimento no período 2000–2019 e a desaceleração posterior indicam
+      migração do desafio de mídia: menos aquisição de novos usuários e mais disputa pela atenção
+      de uma audiência já conectada. A análise por subperíodo permite ajustar o mix entre mídia de
+      massa e canais digitais ao longo do tempo.
+    </p>
+
+    <h3>Sistemas de informação e produtividade</h3>
+    <p>
+      Quanto maior a parcela da população conectada, maior a viabilidade de sistemas de informação
+      que dependem de interação digital — autoatendimento, prontuários, emissão de documentos,
+      pagamentos e integração com fornecedores. A difusão do acesso é, portanto, uma condição de
+      contorno para projetos de sistemas e para ganhos de produtividade.
+    </p>
+
+    <h3>Relacionamento com clientes e inclusão de consumidores</h3>
+    <p>
+      O fato de o Brasil apresentar a menor taxa do grupo em 2024 (84,46%) indica que uma parcela
+      relevante da população permanece fora dos canais digitais. Estratégias multicanal — e não a
+      substituição integral dos canais presenciais — continuam necessárias para atender esses
+      consumidores sem excluí-los.
+    </p>
+
+    <h3>Identificação de oportunidades de negócio</h3>
+    <p>
+      A convergência das curvas reduz o diferencial competitivo baseado apenas em presença digital
+      e desloca a oportunidade para segmentos ainda mal atendidos: qualidade de conexão, serviços
+      digitais para populações de menor renda, soluções de inclusão digital e ferramentas de
+      produtividade para pequenos negócios.
+    </p>
+  </section>
+
+  <!-- ==================================================================== 7 -->
+  <section id="limitacoes">
+    <span class="sec-num">Seção 7</span>
+    <h2>Limitações da pesquisa</h2>
+    <p>
+      O indicador utilizado mede a proporção de indivíduos que usaram a Internet nos últimos três
+      meses. Ele <strong>não mede</strong>:
+    </p>
+    <div class="grid-2">
+      <ul>
+        <li>a qualidade da conexão;</li>
+        <li>a velocidade da Internet contratada;</li>
+        <li>o custo de acesso em relação à renda;</li>
+        <li>a disponibilidade e a qualidade dos equipamentos;</li>
+      </ul>
+      <ul>
+        <li>a alfabetização digital e as habilidades de uso;</li>
+        <li>a intensidade e a finalidade do uso;</li>
+        <li>a desigualdade de acesso dentro de cada país;</li>
+        <li>a diferença entre áreas urbanas e rurais.</li>
+      </ul>
+    </div>
+    <p>
+      Além disso, os dados são estimativas compiladas pela ITU a partir de pesquisas nacionais com
+      metodologias distintas, sujeitas a revisões. Valores arredondados na fonte — como Argentina
+      em 2009 (34,00%) e 2010 (45,00%) — e descontinuidades abruptas, como o salto chileno de
+      2015 (+15,52 pp), devem ser lidos com cautela e não permitem inferir mudanças reais no
+      comportamento no mesmo intervalo.
+    </p>
+    <p>
+      Por fim, a análise é descritiva: não estima relações causais entre acesso à Internet e
+      variáveis econômicas, nem incorpora diferenciais de renda, escolaridade ou infraestrutura.
+      Estudos explicativos exigiriam modelos com controles adicionais e dados em nível individual.
+    </p>
+  </section>
+
+  <!-- ==================================================================== 8 -->
+  <section id="conclusao">
+    <span class="sec-num">Seção 8</span>
+    <h2>Conclusão</h2>
+    <div class="texto-academico">
+      <p>
+        Entre 2000 e 2024, o acesso à Internet deixou de ser um fenômeno restrito a minorias e se
+        tornou um atributo majoritário da população nos quatro países analisados. O Brasil passou de
+        2,87% para 84,46% da população usando Internet, um avanço de 81,59 pontos percentuais. Os
+        três vizinhos percorreram trajetória semelhante: Argentina (+82,63 pp), Uruguai (+81,45 pp)
+        e Chile (+78,99 pp).
+      </p>
+      <p>
+        A despeito da convergência, o Brasil permanece abaixo da média dos três países em 2024
+        (−7,95 pp) e apresenta a menor média do período (47,39%). O Chile consolidou a liderança,
+        com 95,59% em 2024, e o ritmo de crescimento brasileiro desacelerou de 4,04 pp/ano
+        (2000–2009) para 0,78 pp/ano (2020–2024).
+      </p>
+      <p>
+        Para a Administração, o resultado central é que a variável crítica mudou de natureza. O
+        desafio já não é apenas conectar novos usuários, mas qualificar o uso, integrar canais e
+        atender com equidade a parcela da população que ainda não está plenamente incluída. Nesse
+        sentido, a leitura de séries históricas oficiais — como a construída neste estudo —
+        constitui instrumento de apoio ao planejamento, à formulação de políticas e à decisão
+        empresarial.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================================================================== 9 -->
+  <section id="referencias">
+    <span class="sec-num">Seção 9</span>
+    <h2>Referências</h2>
+    <ul class="referencias">
+      <li>
+        WORLD BANK. <strong>World Development Indicators</strong> [base de dados]. Washington, DC:
+        World Bank, 2026. Disponível em:
+        <a href="https://databank.worldbank.org/source/world-development-indicators" target="_blank" rel="noopener">https://databank.worldbank.org/source/world-development-indicators</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        WORLD BANK. <strong>Individuals using the Internet (% of population) — IT.NET.USER.ZS</strong>.
+        Washington, DC: World Bank, 2026. Disponível em:
+        <a href="https://data.worldbank.org/indicator/IT.NET.USER.ZS" target="_blank" rel="noopener">https://data.worldbank.org/indicator/IT.NET.USER.ZS</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        WORLD BANK. <strong>World Bank Open Data — API v2: developer documentation</strong>.
+        Washington, DC: World Bank, 2026. Disponível em:
+        <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392" target="_blank" rel="noopener">https://datahelpdesk.worldbank.org/knowledgebase/articles/889392</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        INTERNATIONAL TELECOMMUNICATION UNION. <strong>World Telecommunication/ICT Indicators
+        Database</strong>. Genebra: ITU, 2025. Disponível em:
+        <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/publications/wtid.aspx" target="_blank" rel="noopener">https://www.itu.int/en/ITU-D/Statistics/Pages/publications/wtid.aspx</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        INTERNATIONAL TELECOMMUNICATION UNION. <strong>Measuring digital development: Facts and
+        Figures</strong>. Genebra: ITU, 2025. Disponível em:
+        <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx" target="_blank" rel="noopener">https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+      <li>
+        NÚCLEO DE INFORMAÇÃO E COORDENAÇÃO DO PONTO BR. <strong>TIC Domicílios</strong>.
+        São Paulo: Cetic.br/NIC.br, 2025. Disponível em:
+        <a href="https://cetic.br/pt/pesquisa/domicilios/" target="_blank" rel="noopener">https://cetic.br/pt/pesquisa/domicilios/</a>.
+        Acesso em: 17 nov. 2026.
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <div class="rodape-inner">
+    <strong>Inclusão Digital: uma análise comparativa da evolução do acesso à Internet no Brasil e
+    em países da América do Sul.</strong><br>
+    Pesquisa acadêmica desenvolvida para a disciplina Tecnologia da Informação e Comunicação
+    Aplicada à Administração. Dados: Banco Mundial (WDI), indicador IT.NET.USER.ZS, coleta via API
+    em 17/11/2026. Relatório completo em PDF: <code>output/relatorio-inclusao-digital.pdf</code>.
+  </div>
+</footer>
+
+<script src="assets/js/vendor/chart.umd.js"></script>
+<script src="data/internet_users.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>
